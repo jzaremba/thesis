@@ -1,11 +1,11 @@
 all:
-	docker run -v $(shell pwd):/build -w /build harshjv/texlive-2015 pdflatex main
-	docker run -v $(shell pwd):/build -w /build harshjv/texlive-2015 bibtex main
-	docker run -v $(shell pwd):/build -w /build harshjv/texlive-2015 pdflatex main
-	docker run -v $(shell pwd):/build -w /build harshjv/texlive-2015 pdflatex main
+	docker run -it --rm -e "USER=$(shell id -un)" -e "USER_ID=$(shell id -u)" -e "GROUP_ID=$(shell id -g)" -v $(shell pwd):/opt/workdir jzaremba/tex pdflatex main
+	docker run -it --rm -e "USER=$(shell id -un)" -e "USER_ID=$(shell id -u)" -e "GROUP_ID=$(shell id -g)" -v $(shell pwd):/opt/workdir jzaremba/tex bibtex main
+	docker run -it --rm -e "USER=$(shell id -un)" -e "USER_ID=$(shell id -u)" -e "GROUP_ID=$(shell id -g)" -v $(shell pwd):/opt/workdir jzaremba/tex pdflatex main
+	docker run -it --rm -e "USER=$(shell id -un)" -e "USER_ID=$(shell id -u)" -e "GROUP_ID=$(shell id -g)" -v $(shell pwd):/opt/workdir jzaremba/tex pdflatex main
 
 fast:
-	docker run -v $(pwd):/build -w /build harshjv/texlive-2015 pdflatex main
+	docker run -it --rm -e "USER=$(shell id -un)" -e "USER_ID=$(shell id -u)" -e "GROUP_ID=$(shell id -g)" -v $(shell pwd):/opt/workdir jzaremba/tex pdflatex main
 
 clean:
 	rm main.aux main.log main.out main.blg main.bbl main.toc main.lof main.lot
