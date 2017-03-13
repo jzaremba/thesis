@@ -9,3 +9,11 @@ Citation formats
 	\citep[see][chap.~2]{jon90} 	⇒ 	(see Jones et al., 1990, chap. 2)
 	\citet*{jon90} 					⇒	Jones, Baker, and Williams (1990)
 	\citep*{jon90} 					⇒ 	(Jones, Baker, and Williams, 1990)
+	\citealt{jon90} 				⇒ 	Jones et al. 1990
+	\citealt*{jon90} 				⇒ 	Jones, Baker, and Williams 1990
+	\citealp{jon90} 				⇒ 	Jones et al., 1990
+	\citealp*{jon90} 				⇒ 	Jones, Baker, and Williams, 1990
+	\citealp{jon90,jam91} 			⇒ 	Jones et al., 1990; James et al., 1991
+	\citealp[pg.~32]{jon90} 		⇒ 	Jones et al., 1990, pg. 32
+	\citenum{jon90} 				⇒ 	11
+	\citetext{priv.\ comm.} 		⇒ 	(priv. comm.)
