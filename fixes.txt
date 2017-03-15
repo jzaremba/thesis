@@ -1,3 +1,2 @@
 Spatially-tuned Ca\super{2+} transients {Dombeck, 2010 #309} (Fig. 2c) were detected in both WT and \emph{Df(16)A\super{+/-}}, mice however we found that the fraction of identified neurons that exhibited place cell place cell properties was about 25$\%$ less in \emph{Df(16)A\super{+/-}} mice...
 -Should be 2007
-

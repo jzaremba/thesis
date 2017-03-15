@@ -17,3 +17,10 @@ Citation formats
 	\citealp[pg.~32]{jon90} 		⇒ 	Jones et al., 1990, pg. 32
 	\citenum{jon90} 				⇒ 	11
 	\citetext{priv.\ comm.} 		⇒ 	(priv. comm.)
+	\citeauthor{jon90} 				⇒ 	Jones et al.
+	\citeauthor*{jon90} 			⇒ 	Jones, Baker, and Williams
+	\citeyear{jon90} 				⇒ 	1990
+	\citeyearpar{jon90} 			⇒ 	(1990)
+
+https://en.wikibooks.org/wiki/LaTeX/Labels_and_Cross-referencing
+https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols
