@@ -5,3 +5,15 @@ This assumption allows us to empirically calculate the false positive rate for e
 - Should be 5%
 
 - Fix Skaggs reference
+
+We detected statistically significant calcium transients as previously described \citep{Dombeck2007}\citep{Lovett-Barron2014}.
+- delete, next section goes into detail.
+
+LFP signals from a 4-channel silicon probe (NeuroNexus, Ann Arbor) centered around the \emph{stratum pyramidale} layer of CA1 were recorded
+- change to stratum pyramidale
+
+recording site was chosen based on the amplitude of LFP ripple-events
+- lower-case ripple
+
+In order to detect Sharp-Wave/Ripple events, the pyramidal layer LFP's were band-pass filtered at the Ripple-band frequency 
+- lower-case SWR
