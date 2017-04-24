@@ -113,23 +113,33 @@ To my family, my friends, \& my teachers.
 % \fancyhead[RE,LO]{\itshape \leftmark}
 \renewcommand{\headrulewidth}{0pt}
 }
+\newcommand{\df}{}
+\def\df/{\emph{Df(16)A\super{+/-}}}
+\newcommand{\scz}{}
+\def\scz/{schizophrenia}
+\newcommand{\Scz}{}
+\def\Scz/{Schizophrenia}
 \pagestyle{plain}
 \pagenumbering{arabic}
 
 \part{Introduction}
 \chapter{Hippocampus}
-\label{section:intro:hpc}
+\label{ch:intro:hpc}
 \input{intro-HPC}
 \chapter{Schizophrenia}
+\label{ch:intro:scz}
 \input{intro-SCZ}
+\chapter{Techniques}
+\label{ch:intro:techniques}
+\input{intro-techniques}
 
 \part{Approaches}
-\chapter{SIMA}
-\input{chapter-sima}
+\input{chapter-df}
+% \chapter{SIMA}
+% \input{chapter-sima}
 \chapter{Other Applications}
 \input{chapter-applications}
-\part{Df}
-\input{chapter-df}
+
 
 % \part{The hippocampal output node}
 % \input{chapter-pv}

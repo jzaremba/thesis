@@ -24,3 +24,5 @@ Citation formats
 
 https://en.wikibooks.org/wiki/LaTeX/Labels_and_Cross-referencing
 https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols
+
+https://xkcd.com/1403/
