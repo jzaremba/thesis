@@ -3,7 +3,48 @@ Techniques
 \section{\emph{In vivo} two-photon calcium imaging}
 
 \section{Head-fixed behavior}
+In order to allow for two-photon calcium imaging in awake mice, we need to design all behavioral tasks to work while mice are head-fixed under a two-photon microscope.
+
+\subsection{Random foraging}
 
 \subsection{Goal-oriented learning}
 
 \section{Data analysis}
+At the time nothing else existed.
+
+A typical 10 minute imaging session generates a $\approx$15~GB raw movie that needs to be processed down to a single spatial tuning vector for each of approximately 500 cell somas in the field of view.
+Processing each movie requires identifying regions of interest (ROIs), extracting fluorescent signals from each ROI, cleaning up each trace by calculating changes in fluorescence, identifying significant calcium events, aligning calcium event times to the mouses' position in the behavioral environment, and finally calculating place fields for each cell.
+Place fields from a single session can tell us how the mice represent the environment in a given session, but to address some of the more interesting questions I wanted to ask how these representations changed over time.
+For this, I needed to register ROIs from day-to-day and compare the tuning of the population as a whole over time, but also track changes in the tuning of individual pyramidal cells from session-to-session.
+All of these steps need to be performed fast, reliably, and as automatically as possible.
+Over the course of my PhD thesis work, I, along with other members of Attila's Lab (especially Patrick Kaifosh and Nathan Danielson), developed a set of programs and tools to complete all of these steps mentioned above.
+I will focus here on the pieces that I personally originated or was the primary contributor to, but "no man is an island"; Attila's lab is collaborative by design and all the code we use is shared, so multiple people have contributed to most aspects of the analysis pipeline.
+
+\subsection{Initial processing}
+
+\subsection{Signal extraction}
+
+\subsection{Signal processing}
+After signals are extracted for each ROI the next step is to quantify the change in fluorescence over time, as absolute fluorescent values are not interpretable in isolation.
+Calculating the change in fluorescent over time is simple in theory: $$\frac{\Delta F}{F}(t) = \frac{F(t) - F_{\circ}}{F_{\circ}},$$ in practice there are many complications that any algorithm needs to be robust to.
+\citep{Jia2011}
+
+\subsection{Place cell identification}
+Pyramidal cells in the mammalian hippocampus fire at specific locations within a familiar environment.
+We developed an algorithm to reliably identify cells that had a significantly higher mutual information between the mouse's position and the calcium activity of the cell than expected by chance.
+The overall goal of our analytical approach is to identify as un-­biased a population of spatially-­tuned cells as possible.
+In particular, we aim to avoid biases in place  field width, number of place fields per cell, location of place fields on the belt, or overall cell activity/firing rate level.
+In addition, unlike with electrophysiological data, calcium events have a finite duration that we needed to account for on a per-­cell basis.  
+
+In brief, we calculate the occupancy normalized transient rate histogram for each cell with bin sizes ranging from 2~cm to 100~cm.
+In addition, for each bin size we also rotate the binning through all the possible shifts, such that, for example, if a cell fired transients over any continuous 20~cm segment of the belt, there would be a 20~cm bin that contained all of the transients.
+
+We then calculate the spatial information for each of these bin sizes and bin shifts and take the maximum value as the true spatial information of that cell.
+We then shuffle all of the transients within each cell, re-­calculate the occupancy normalized transient rate histogram for each bin size and shift as described above, again take the maximum spatial information for this particular shuffle, and then create a distribution of spatial information values across shuffles.
+This distribution empirically defines our spatial information confidence threshold for the particular pattern of transient durations and timings for the particular cell.
+
+Additional details of this method can be found in \autoref{sec:df:methods:pc_identification}.
+ 
+\subsection{Lab Analysis Bundle (LAB)}
+
+\subsection{Place cell stability}

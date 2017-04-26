@@ -17,3 +17,6 @@ recording site was chosen based on the amplitude of LFP ripple-events
 
 In order to detect Sharp-Wave/Ripple events, the pyramidal layer LFP's were band-pass filtered at the Ripple-band frequency 
 - lower-case SWR
+
+Figure legend for Figure 1
+- Context A`, not B

@@ -24,5 +24,7 @@ Citation formats
 
 https://en.wikibooks.org/wiki/LaTeX/Labels_and_Cross-referencing
 https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols
+http://mirror.unl.edu/ctan/macros/latex/contrib/caption/caption-eng.pdf
+https://www.latex-tutorial.com/tutorials/beginners/latex-figures/
 
 https://xkcd.com/1403/
