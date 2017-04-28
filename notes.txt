@@ -26,5 +26,7 @@ https://en.wikibooks.org/wiki/LaTeX/Labels_and_Cross-referencing
 https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols
 http://mirror.unl.edu/ctan/macros/latex/contrib/caption/caption-eng.pdf
 https://www.latex-tutorial.com/tutorials/beginners/latex-figures/
+http://ctan.mirrors.hoobly.com/macros/latex/contrib/acronym/acronym.pdf
+https://askubuntu.com/questions/457604/converting-a-lot-of-image-jpg-to-png
 
 https://xkcd.com/1403/

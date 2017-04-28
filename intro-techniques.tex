@@ -2,14 +2,46 @@ Techniques
 
 \section{\emph{In vivo} two-photon calcium imaging}
 
-\section{Head-fixed behavior}
+\section{Head-fixed behavior}\label{sec:intro:techniques:behavior}
 In order to allow for two-photon calcium imaging in awake mice, we need to design all behavioral tasks to work while mice are head-fixed under a two-photon microscope.
+While the core apparatus was in place when I began experiments, extensive upgrades were necessary to optimally run my head-fixed learning tasks.
+I, along with colleagues in the lab, redesigned the wheels, axles, and platform to minimize friction and facilitate running while head-fixed.
+We designed a RFID-tag and quadrature encoded-based system to accurately track position over many laps to within $<$0.5~cm.
+We designed new treadmill belts that consist of multiple fabrics sewed together with various cues scattered throughout, which together convey all the spatial information used by mice to anchor place cell maps.
+I added features to our in-house behavioral control software to allow for the presentation
+These hardware changes allowed for the design of new head-fixed behaviors, described below.
 
 \subsection{Random foraging}
+The first task we designed was a simple random foraging task where mice run to get water, but don't need to learn about any particular location on the belt in order to get water rewards.
+All head-fixed paradigms begin with 1-2 weeks of training where mice learn to lick for water from a lick port while needing to run progressively farther in order to receive another reward (see \autoref{sec:df:methods:training}).
+Mice were either operantly rewarded (they must lick to receive water) at random intervals along the belt or non-operantly at a fixed location.
+This allowed me to look at baseline stability of spatial maps with two-photon calcium imaging over days or weeks (see \autoref{sec:applications:chronic}).
 
-\subsection{Goal-oriented learning}
+\subsection{Goal-oriented learning}\label{sec:intro:techniques:GOL}
+In order to study spatial learning and memory while simultaneously imaging functional activity of hippocampal area CA1 place cells, I developed a head-fixed goal-oriented learning (GOL) task.
+Freely-moving assays of spatial memory in rodents traditionally include the Morris water maze, Barnes maze, or cheese board maze (see \autoref{sec:intro:hpc:spatial-reward}).
+While head-fixed under a two-photon microscope, mice are constrained to run in effectively a one-dimensional environment (similar to freely moving linear track paradigms) and there are limited options to experimentally assay choices made by the mice.
+They key features that we were trying to design in the task were:
+\begin{enumerate}
+	\item Mice are able to learn a specific rewarded location on the treadmill that is otherwise un-cued.\label{item:into:techniques:GOL:location}
+	\item Mice learn the task over several trials to allow for determining a `learning curve'.\label{item:into:techniques:GOL:learning}
+	\item A behavioral readout that is sensitive to subtle variations in ability to learn.\label{item:into:techniques:GOL:readout}
+	\item Be able to flexibly manipulate the reward and environment parameters to probe mice' ability to learn the task.\label{item:into:techniques:GOL:manip}
+\end{enumerate}
 
-\section{Data analysis}
+Our GOL task requires mice to run laps along our multi-fabric, feature-rich circular treadmill belt.
+The mice are water-restricted, so we use water delivered through a lick port as a reward.
+Each lap there is one spatial region (\textsc{reward zone}, usually a 20-cm window) on the belt where the mice can operantly receive water rewards: if they lick they get water, if they do not lick, they don't.
+The reward will `dry up' after after a fixed amount of time has passed since the mouse entered the reward zone that lap (usually 3 seconds).
+Not all mice will run for water rewards at all, and not all mice will perform this task, but many are able to (\ref{item:into:techniques:GOL:location}).
+We generally give the mice 9 sessions to learn the reward location.
+Some mice will find the reward immediately, but even those that do, they continue to imptove and stabilize their performance over the 9 sessions (\ref{item:into:techniques:GOL:learning}).
+By measuring the capacitance of the lick port, we can detect changes when the mouse licks, providing us an accurate measure of the time (and the mouse's location on the belt) when each lick occurs.
+The operant nature of the reward schedule requires the mice to lick everywhere along the belt to sample each location and find the correct position that will be rewarded.
+As the mice learn the reward zone, they suppress licking away from the reward and will then only lick at the reward zone.
+We have used multiple measures to quantify this behavior, but generally look at the fraction of licks in the reward zone as a measure of learning (\ref{item:into:techniques:GOL:readout}).
+
+\section{Data analysis pipeline}\label{sec:intro:techniques:pipeline}
 At the time nothing else existed.
 
 A typical 10 minute imaging session generates a $\approx$15~GB raw movie that needs to be processed down to a single spatial tuning vector for each of approximately 500 cell somas in the field of view.
@@ -46,5 +78,11 @@ This distribution empirically defines our spatial information confidence thresho
 Additional details of this method can be found in \autoref{sec:df:methods:pc_identification}.
  
 \subsection{Lab Analysis Bundle (LAB)}
+Over the years, as the lab and our code base grew, the collection of scripts, classes, and functions used for our analysis became hard to mention and difficult for new members to learn.
+In order to stabilize the code for future members, I spearheaded an effort to clean-up, refactor, and document all of the code we used in the lab.
+This became the Lab Analysis Bundle (LAB), which is a complete Python package hosted privately on GitLab (\url{https://gitlab.com}).
+The package is easily installable using standard Python packaging tools, with well-defined dependencies.
+As part of refactoring the code, I added automatic documentation to the core functions and standardized the API.
+While far from finished, the lab code is now in a much more manageable structure that has now successfully been passed on to future lab members.
 
-\subsection{Place cell stability}
+\subsection{Place cell stability}\label{sec:intro:techniques:place-cells}
