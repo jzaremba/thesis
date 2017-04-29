@@ -13,6 +13,34 @@
 \usepackage{tabularx}
 \usepackage{xcolor}
 \usepackage{attrib}
+\usepackage{todonotes}
+\usepackage{listings}
+\usepackage{color}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+ 
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=4
+}
+\lstset{style=mystyle}
 
 \usepackage{acronym}
 \newacro{PFC}{prefrontal cortex}
@@ -53,6 +81,8 @@
 \thesiscopyrightpage
 
 \thesisabstract
+
+\listoftodos
 
 % In the "roman-numbered" section of the thesis, we have numbers at the bottom
 % and we have to reduce the textheight of the text to make space for the number
@@ -131,31 +161,16 @@ To my family, my friends, \& my teachers.
 \pagenumbering{arabic}
 
 \part{Introduction}
-\chapter{Memory and the Hippocampus}
-\label{ch:intro:hpc}
 \input{intro-HPC}
-\chapter{Schizophrenia}
-\label{ch:intro:scz}
 \input{intro-SCZ}
-\chapter{Techniques}
-\label{ch:intro:techniques}
 \input{intro-techniques}
 
 \part{Applications}
 \input{chapter-df}
-% \chapter{SIMA}
-% \input{chapter-sima}
-\chapter{Other Applications}
+\input{chapter-sima}
 \input{chapter-applications}
 
-
-% \part{The hippocampal output node}
-% \input{chapter-pv}
-% \input{chapter-sf_deep}
-
 \part{Conclusions}
-\chapter{Conclusions}
-% \label{sec:conclusions}
 \input{conclusions}
 
 %%%

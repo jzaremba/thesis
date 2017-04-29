@@ -3,3 +3,5 @@
 * Add Nathan's mossy cell paper at least to the methods
 * 50 page intro
 * Horizontal licktograms
+* Fix Dupret figure.
+* Fix Independent codes bibtex

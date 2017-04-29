@@ -28,5 +28,6 @@ http://mirror.unl.edu/ctan/macros/latex/contrib/caption/caption-eng.pdf
 https://www.latex-tutorial.com/tutorials/beginners/latex-figures/
 http://ctan.mirrors.hoobly.com/macros/latex/contrib/acronym/acronym.pdf
 https://askubuntu.com/questions/457604/converting-a-lot-of-image-jpg-to-png
+http://mirrors.rit.edu/CTAN/macros/latex/contrib/todonotes/todonotes.pdf
 
 https://xkcd.com/1403/

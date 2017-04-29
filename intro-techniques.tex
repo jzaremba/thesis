@@ -1,3 +1,5 @@
+\chapter{Techniques}
+\label{ch:intro:techniques}
 Techniques
 
 \section{\emph{In vivo} two-photon calcium imaging}
@@ -19,7 +21,7 @@ This allowed me to look at baseline stability of spatial maps with two-photon ca
 
 \subsection{Goal-oriented learning}\label{sec:intro:techniques:GOL}
 In order to study spatial learning and memory while simultaneously imaging functional activity of hippocampal area CA1 place cells, I developed a head-fixed goal-oriented learning (GOL) task.
-Freely-moving assays of spatial memory in rodents traditionally include the Morris water maze, Barnes maze, or cheese board maze (see \autoref{sec:intro:hpc:spatial-reward}).
+Freely-moving assays of spatial memory in rodents traditionally include the Morris water maze, Barnes maze, or cheese board maze (see \autoref{sec:intro:memory:spatial-reward}).
 While head-fixed under a two-photon microscope, mice are constrained to run in effectively a one-dimensional environment (similar to freely moving linear track paradigms) and there are limited options to experimentally assay choices made by the mice.
 They key features that we were trying to design in the task were:
 \begin{enumerate}
@@ -35,31 +37,56 @@ Each lap there is one spatial region (\textsc{reward zone}, usually a 20-cm wind
 The reward will `dry up' after after a fixed amount of time has passed since the mouse entered the reward zone that lap (usually 3 seconds).
 Not all mice will run for water rewards at all, and not all mice will perform this task, but many are able to (\ref{item:into:techniques:GOL:location}).
 We generally give the mice 9 sessions to learn the reward location.
-Some mice will find the reward immediately, but even those that do, they continue to imptove and stabilize their performance over the 9 sessions (\ref{item:into:techniques:GOL:learning}).
+Some mice will find the reward immediately, but even those that do, they continue to improve and stabilize their performance over the 9 sessions (\ref{item:into:techniques:GOL:learning}).
 By measuring the capacitance of the lick port, we can detect changes when the mouse licks, providing us an accurate measure of the time (and the mouse's location on the belt) when each lick occurs.
 The operant nature of the reward schedule requires the mice to lick everywhere along the belt to sample each location and find the correct position that will be rewarded.
 As the mice learn the reward zone, they suppress licking away from the reward and will then only lick at the reward zone.
 We have used multiple measures to quantify this behavior, but generally look at the fraction of licks in the reward zone as a measure of learning (\ref{item:into:techniques:GOL:readout}).
+This particular measure can be misleading if the mice lick everywhere along the belt, but then lick robustly once they receive the first drop of water, but in practice we do not see this behavior.
+In addition we often look at measures such as \textsc{anticipatory licking}, which quantify the fraction of licks directly preceding the reward, but crucially exclude licks in response to water delivery, though this measure has proven to be less-sensitive to learning.
+Finally, the setup allows the experimenter to move the reward to any arbitrary location along the belt, swap out belts to modify the environment, and manipulate non-spatial odor/tone/light cues to change the surrounding context (\ref{item:into:techniques:GOL:manip}).
 
 \section{Data analysis pipeline}\label{sec:intro:techniques:pipeline}
-At the time nothing else existed.
-
 A typical 10 minute imaging session generates a $\approx$15~GB raw movie that needs to be processed down to a single spatial tuning vector for each of approximately 500 cell somas in the field of view.
 Processing each movie requires identifying regions of interest (ROIs), extracting fluorescent signals from each ROI, cleaning up each trace by calculating changes in fluorescence, identifying significant calcium events, aligning calcium event times to the mouses' position in the behavioral environment, and finally calculating place fields for each cell.
 Place fields from a single session can tell us how the mice represent the environment in a given session, but to address some of the more interesting questions I wanted to ask how these representations changed over time.
 For this, I needed to register ROIs from day-to-day and compare the tuning of the population as a whole over time, but also track changes in the tuning of individual pyramidal cells from session-to-session.
 All of these steps need to be performed fast, reliably, and as automatically as possible.
 Over the course of my PhD thesis work, I, along with other members of Attila's Lab (especially Patrick Kaifosh and Nathan Danielson), developed a set of programs and tools to complete all of these steps mentioned above.
-I will focus here on the pieces that I personally originated or was the primary contributor to, but "no man is an island"; Attila's lab is collaborative by design and all the code we use is shared, so multiple people have contributed to most aspects of the analysis pipeline.
+I will focus here on the pieces that I personally originated or was the primary contributor to, but ``no man is an island''; Attila's lab is collaborative by design and all the code we use is shared, so multiple people have contributed to most aspects of the analysis pipeline.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\textwidth]{intro/data_pipeline}
+	\caption[Data analysis pipeline]{Data analysis pipeline. Schematic represents the various steps of processing performed on all data.}
+	\label{fig:intro:techniques:pipeline}
+\end{figure}
+
 
 \subsection{Initial processing}
+Imaging data acquired through our microscope software (PraireView) is stored as an individual TIFF image file for every frame of every plane and channel.
+This can lead to over 30,000 files per 10 minute recording session, which very quickly becomes difficult to manage.
+So, the first step after running an experiment is to move all the data to a special \textsc{scratch} folder on our lab server, where I have a script constantly running to convert all of the data into one large HDF5 file (\url{https://www.hdfgroup.org/HDF5/}).
+This format allows us to store all of the data in a 5-dimensional (Time $\times$ Plane $\times$ Row $\times$ Column $\times$ Channel) indexable structure for easy iteration and viewing of the data.
+The script checks every individual TIFF file, writes it to the HDF5 file, verifys the integrity of the new HDF5 file, and then moves the new file to a permanent place on the server while deleting the original TIFF files.
 
-\subsection{Signal extraction}
+At this point the data is now properly formatted for estimation and correction of motion-induced imaging artifacts using our SIMA software package (\autoref{ch:sima}).
+
+% \subsection{Signal extraction}
 
 \subsection{Signal processing}
 After signals are extracted for each ROI the next step is to quantify the change in fluorescence over time, as absolute fluorescent values are not interpretable in isolation.
-Calculating the change in fluorescent over time is simple in theory: $$\frac{\Delta F}{F}(t) = \frac{F(t) - F_{\circ}}{F_{\circ}},$$ in practice there are many complications that any algorithm needs to be robust to.
-\citep{Jia2011}
+Calculating the change in fluorescent over time is simple in theory: $$\Delta F/F(t) = \frac{F(t) - F_{\circ}}{F_{\circ}},$$ though in practice there are many complications that any algorithm needs to be robust to.
+The primary concern is a non-stationary baseline fluorescence, as drift in the baseline intensity can be mistaken for physiological activity, when in fact it is usually due to an experimental artifact.
+The most common problem is for the baseline to decay over the course of long recordings, caused by water evaporation/leaking from under the objective, bleaching of the calcium indicator, movement of the tissue out of focus, or some combination of these factors.
+While not particularly common, these things do occur and thus need to be accounted for.
+
+Our particular baseline calculation method is based off of \citet{Jia2011}.
+In brief, we first smooth the signal with a boxcar smoothing window of width $\tau_1$ and then for every time-point choose the baseline to be the minimum value of this smoothed signal within a $\tau_2$ window.
+This effectively implies that there should be a $\tau_1$ size window every $\tau_2$ seconds that is absent of any calcium transients or other large fluctuations.
+For hippocampal area CA1 pyramidal cells imaged with GCaMP6f in a well-trained mouse running on a 2-meter long treadmill, we found that $\tau_1$ = 3 seconds and $\tau_2$ = 60 seconds worked well.
+As an additional step to aid the robustness of the precise window sizes, we also implemented an iterative procedure where after calculating $\Delta F/F$ we identified significant calcium events (see \autoref{sec:df:methods:transients}) and then re-calculated the $\Delta F/F$ while removing the identified calcium transients from the baseline.
+This prevents errors in the baseline calculation for any cells that do not have a 3 second period of quiescence every minute, and was generally repeated 3 times to ensure an accurate baseline calculation.
 
 \subsection{Place cell identification}
 Pyramidal cells in the mammalian hippocampus fire at specific locations within a familiar environment.
@@ -83,6 +110,42 @@ In order to stabilize the code for future members, I spearheaded an effort to cl
 This became the Lab Analysis Bundle (LAB), which is a complete Python package hosted privately on GitLab (\url{https://gitlab.com}).
 The package is easily installable using standard Python packaging tools, with well-defined dependencies.
 As part of refactoring the code, I added automatic documentation to the core functions and standardized the API.
-While far from finished, the lab code is now in a much more manageable structure that has now successfully been passed on to future lab members.
+The lab code repository is now in a much more manageable structure that has successfully been passed on to future lab members.
+
+The LAB contains all of the tools needed to analyze behavior and imaging data acquired in Attila's lab.
+The core components are:
+\begin{itemize}
+	\item{Standardized representation of all experimental \textbf{metadata}, including mouse information, experiment start time, and exact behavioral parameters.}
+	\item{Scripts for \textbf{processing} of imaging data from raw movies to extracted traces for each ROI.}
+	\item{Access to all of the \textbf{behavioral data} acquired during the experiment, such as licking and position information.}
+	\item{Object-oriented \textbf{structure} to work with collections of mice and experiments.}
+	\item{\textbf{Analysis} methods to calculate behavioral (e.g. fraction of licks near rewards) and functional (e.g. place field correlation) metrics.}
+	\item{Generalized \textbf{plotting} functions that work the output of any analysis function.}
+\end{itemize}
+
+Below is an example analysis that will plot a histogram of place field widths for all recorded sessions from one mouse.
+
+\begin{lstlisting}[language=Python]
+import matplotlib.pyplot as plt
+import lab
+
+# Parse experiments metadata
+expts = lab.ExperimentSet('behavior_jeff.xml')
+# Pull out one particular mouse
+mouse = expt.grabMouse('jz119')
+# Find all sessions that were imaged
+expt_grp = lab.classes.pcExperimentGroup(mouse.imagingExperiments())
+
+# Calculate the width of all place fields
+pf_width = ab.analysis.place_cell_analysis.place_field_width(expt_grp)
+
+# Plot a histogram of all the place field widths
+ax = plt.axes()
+lab.plotting.plot_dataframe(ax, [pf_width], plot_method='hist')
+plt.show()
+
+\end{lstlisting}
 
 \subsection{Place cell stability}\label{sec:intro:techniques:place-cells}
+
+
