@@ -1,11 +1,16 @@
+\acresetall
 \chapter{Techniques}
 \label{ch:intro:techniques}
-Techniques
 
-\section{\emph{In vivo} two-photon calcium imaging}
+\section{\emph{In vivo} two-photon Ca\super{2+} imaging}
+All of my experiments revolved around two-photon Ca\super{2+} imaging in hippocampal area CA1 of head-fixed mice using genetically-encoded calcium indicators (GECIs), in particular GCaMP6f.
+In vivo Ca{2+} imaging allowed me to record the activity of hundreds of pyramidal cells or multiple axonal projection fibers simultaneously and, importantly, follow the same cells or fibers for multiple days.
+During my thesis work, the most significant upgrade to our imaging capabilities was the addition of resonant scanning capabilities, which increased our imaging rate by roughly a factor of 10.
+This allowed for up to a 10 times increase in both temporal and spatial resolution, which greatly improved the quality of our imaging data.
+The upgrade also required a corresponding upgrade to our analysis pipeline and server design to handle the significantly increased quantity of data acquired (see below).
 
 \section{Head-fixed behavior}\label{sec:intro:techniques:behavior}
-In order to allow for two-photon calcium imaging in awake mice, we need to design all behavioral tasks to work while mice are head-fixed under a two-photon microscope.
+In order to allow for two-photon Ca\super{2+} imaging in awake mice, we need to design all behavioral tasks to work while mice are head-fixed under a two-photon microscope.
 While the core apparatus was in place when I began experiments, extensive upgrades were necessary to optimally run my head-fixed learning tasks.
 I, along with colleagues in the lab, redesigned the wheels, axles, and platform to minimize friction and facilitate running while head-fixed.
 We designed a RFID-tag and quadrature encoded-based system to accurately track position over many laps to within $<$0.5~cm.
@@ -17,10 +22,10 @@ These hardware changes allowed for the design of new head-fixed behaviors, descr
 The first task we designed was a simple random foraging task where mice run to get water, but don't need to learn about any particular location on the belt in order to get water rewards.
 All head-fixed paradigms begin with 1-2 weeks of training where mice learn to lick for water from a lick port while needing to run progressively farther in order to receive another reward (see \autoref{sec:df:methods:training}).
 Mice were either operantly rewarded (they must lick to receive water) at random intervals along the belt or non-operantly at a fixed location.
-This allowed me to look at baseline stability of spatial maps with two-photon calcium imaging over days or weeks (see \autoref{sec:applications:chronic}).
+This allowed me to look at baseline stability of spatial maps with two-photon Ca\super{2+} imaging over days or weeks (see \autoref{sec:applications:chronic}).
 
 \subsection{Goal-oriented learning}\label{sec:intro:techniques:GOL}
-In order to study spatial learning and memory while simultaneously imaging functional activity of hippocampal area CA1 place cells, I developed a head-fixed goal-oriented learning (GOL) task.
+In order to study spatial learning and memory while simultaneously imaging functional activity of hippocampal area CA1 place cells, I developed a head-fixed \ac{GOL} task.
 Freely-moving assays of spatial memory in rodents traditionally include the Morris water maze, Barnes maze, or cheese board maze (see \autoref{sec:intro:memory:spatial-reward}).
 While head-fixed under a two-photon microscope, mice are constrained to run in effectively a one-dimensional environment (similar to freely moving linear track paradigms) and there are limited options to experimentally assay choices made by the mice.
 They key features that we were trying to design in the task were:
@@ -31,7 +36,7 @@ They key features that we were trying to design in the task were:
 	\item Be able to flexibly manipulate the reward and environment parameters to probe mice' ability to learn the task.\label{item:into:techniques:GOL:manip}
 \end{enumerate}
 
-Our GOL task requires mice to run laps along our multi-fabric, feature-rich circular treadmill belt.
+Our \ac{GOL} task requires mice to run laps along our multi-fabric, feature-rich circular treadmill belt.
 The mice are water-restricted, so we use water delivered through a lick port as a reward.
 Each lap there is one spatial region (\textsc{reward zone}, usually a 20-cm window) on the belt where the mice can operantly receive water rewards: if they lick they get water, if they do not lick, they don't.
 The reward will `dry up' after after a fixed amount of time has passed since the mouse entered the reward zone that lap (usually 3 seconds).
@@ -48,7 +53,7 @@ Finally, the setup allows the experimenter to move the reward to any arbitrary l
 
 \section{Data analysis pipeline}\label{sec:intro:techniques:pipeline}
 A typical 10 minute imaging session generates a $\approx$15~GB raw movie that needs to be processed down to a single spatial tuning vector for each of approximately 500 cell somas in the field of view.
-Processing each movie requires identifying regions of interest (ROIs), extracting fluorescent signals from each ROI, cleaning up each trace by calculating changes in fluorescence, identifying significant calcium events, aligning calcium event times to the mouses' position in the behavioral environment, and finally calculating place fields for each cell.
+Processing each movie requires identifying regions of interest (ROIs), extracting fluorescent signals from each ROI, cleaning up each trace by calculating changes in fluorescence, identifying significant Ca\super{2+} events, aligning Ca\super{2+} event times to the mouses' position in the behavioral environment, and finally calculating place fields for each cell.
 Place fields from a single session can tell us how the mice represent the environment in a given session, but to address some of the more interesting questions I wanted to ask how these representations changed over time.
 For this, I needed to register ROIs from day-to-day and compare the tuning of the population as a whole over time, but also track changes in the tuning of individual pyramidal cells from session-to-session.
 All of these steps need to be performed fast, reliably, and as automatically as possible.
@@ -63,7 +68,7 @@ I will focus here on the pieces that I personally originated or was the primary 
 \end{figure}
 
 
-\subsection{Initial processing}
+\subsection{Initial processing}\label{sec:intro:techniques:inital}
 Imaging data acquired through our microscope software (PraireView) is stored as an individual TIFF image file for every frame of every plane and channel.
 This can lead to over 30,000 files per 10 minute recording session, which very quickly becomes difficult to manage.
 So, the first step after running an experiment is to move all the data to a special \textsc{scratch} folder on our lab server, where I have a script constantly running to convert all of the data into one large HDF5 file (\url{https://www.hdfgroup.org/HDF5/}).
@@ -78,22 +83,22 @@ At this point the data is now properly formatted for estimation and correction o
 After signals are extracted for each ROI the next step is to quantify the change in fluorescence over time, as absolute fluorescent values are not interpretable in isolation.
 Calculating the change in fluorescent over time is simple in theory: $$\Delta F/F(t) = \frac{F(t) - F_{\circ}}{F_{\circ}},$$ though in practice there are many complications that any algorithm needs to be robust to.
 The primary concern is a non-stationary baseline fluorescence, as drift in the baseline intensity can be mistaken for physiological activity, when in fact it is usually due to an experimental artifact.
-The most common problem is for the baseline to decay over the course of long recordings, caused by water evaporation/leaking from under the objective, bleaching of the calcium indicator, movement of the tissue out of focus, or some combination of these factors.
+The most common problem is for the baseline to decay over the course of long recordings, caused by water evaporation/leaking from under the objective, bleaching of the Ca\super{2+} indicator, movement of the tissue out of focus, or some combination of these factors.
 While not particularly common, these things do occur and thus need to be accounted for.
 
 Our particular baseline calculation method is based off of \citet{Jia2011}.
 In brief, we first smooth the signal with a boxcar smoothing window of width $\tau_1$ and then for every time-point choose the baseline to be the minimum value of this smoothed signal within a $\tau_2$ window.
-This effectively implies that there should be a $\tau_1$ size window every $\tau_2$ seconds that is absent of any calcium transients or other large fluctuations.
+This effectively implies that there should be a $\tau_1$ size window every $\tau_2$ seconds that is absent of any Ca\super{2+} transients or other large fluctuations.
 For hippocampal area CA1 pyramidal cells imaged with GCaMP6f in a well-trained mouse running on a 2-meter long treadmill, we found that $\tau_1$ = 3 seconds and $\tau_2$ = 60 seconds worked well.
-As an additional step to aid the robustness of the precise window sizes, we also implemented an iterative procedure where after calculating $\Delta F/F$ we identified significant calcium events (see \autoref{sec:df:methods:transients}) and then re-calculated the $\Delta F/F$ while removing the identified calcium transients from the baseline.
+As an additional step to aid the robustness of the precise window sizes, we also implemented an iterative procedure where after calculating $\Delta F/F$ we identified significant Ca\super{2+} events (see \autoref{sec:df:methods:transients}) and then re-calculated the $\Delta F/F$ while removing the identified Ca\super{2+} transients from the baseline.
 This prevents errors in the baseline calculation for any cells that do not have a 3 second period of quiescence every minute, and was generally repeated 3 times to ensure an accurate baseline calculation.
 
 \subsection{Place cell identification}
 Pyramidal cells in the mammalian hippocampus fire at specific locations within a familiar environment.
-We developed an algorithm to reliably identify cells that had a significantly higher mutual information between the mouse's position and the calcium activity of the cell than expected by chance.
+We developed an algorithm to reliably identify cells that had a significantly higher mutual information between the mouse's position and the Ca\super{2+} activity of the cell than expected by chance.
 The overall goal of our analytical approach is to identify as un-­biased a population of spatially-­tuned cells as possible.
 In particular, we aim to avoid biases in place  field width, number of place fields per cell, location of place fields on the belt, or overall cell activity/firing rate level.
-In addition, unlike with electrophysiological data, calcium events have a finite duration that we needed to account for on a per-­cell basis.  
+In addition, unlike with electrophysiological data, Ca\super{2+} events have a finite duration that we needed to account for on a per-­cell basis.  
 
 In brief, we calculate the occupancy normalized transient rate histogram for each cell with bin sizes ranging from 2~cm to 100~cm.
 In addition, for each bin size we also rotate the binning through all the possible shifts, such that, for example, if a cell fired transients over any continuous 20~cm segment of the belt, there would be a 20~cm bin that contained all of the transients.
@@ -119,8 +124,9 @@ The core components are:
 	\item{Scripts for \textbf{processing} of imaging data from raw movies to extracted traces for each ROI.}
 	\item{Access to all of the \textbf{behavioral data} acquired during the experiment, such as licking and position information.}
 	\item{Object-oriented \textbf{structure} to work with collections of mice and experiments.}
-	\item{\textbf{Analysis} methods to calculate behavioral (e.g. fraction of licks near rewards) and functional (e.g. place field correlation) metrics.}
+	\item{\textbf{Analysis methods} to calculate behavioral (e.g. fraction of licks near rewards) and functional (e.g. place field correlation) metrics.}
 	\item{Generalized \textbf{plotting} functions that work the output of any analysis function.}
+	\item{\textbf{Automatic analysis scripts} to quickly perform standard analyses as soon as imaging data is processed.}
 \end{itemize}
 
 Below is an example analysis that will plot a histogram of place field widths for all recorded sessions from one mouse.
@@ -132,19 +138,28 @@ import lab
 # Parse experiments metadata
 expts = lab.ExperimentSet('behavior_jeff.xml')
 # Pull out one particular mouse
-mouse = expt.grabMouse('jz119')
+mouse = expts.grabMouse('jz119')
 # Find all sessions that were imaged
 expt_grp = lab.classes.pcExperimentGroup(mouse.imagingExperiments())
 
 # Calculate the width of all place fields
-pf_width = ab.analysis.place_cell_analysis.place_field_width(expt_grp)
+pf_width = lab.analysis.place_cell_analysis.place_field_width(expt_grp)
 
 # Plot a histogram of all the place field widths
 ax = plt.axes()
-lab.plotting.plot_dataframe(ax, [pf_width], plot_method='hist')
-plt.show()
+lab.plotting.plot_dataframe(
+	ax, [pf_width], plot_method='hist', labels=['jz119'],
+	activity_label='Place field width (cm)')
 
 \end{lstlisting}
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.7\textwidth]{intro/LAB_pf_width_example}
+	\caption[Example histogram]{Example of using LAB to collect experiments, calculate a place cell metric, and plot the data.}
+	\label{fig:intro:techniques:pf_width}
+\end{figure}
+
 
 \subsection{Place cell stability}\label{sec:intro:techniques:place-cells}
 

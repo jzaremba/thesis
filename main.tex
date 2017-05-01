@@ -13,7 +13,7 @@
 \usepackage{tabularx}
 \usepackage{xcolor}
 \usepackage{attrib}
-\usepackage{todonotes}
+\usepackage[colorinlistoftodos]{todonotes}
 \usepackage{listings}
 \usepackage{color}
  
@@ -45,6 +45,9 @@
 \usepackage{acronym}
 \newacro{PFC}{prefrontal cortex}
 \newacro{HPC}{hippocampus}
+\newacro{GOL}{goal-oriented learning}
+\newacro{fMRI}{functional magnetic resonance imaging}
+\newacro{CBV}{cerebral blood volume}
 
 \graphicspath{{./figures/}}
 \DeclareGraphicsExtensions{.pdf,.png,.jpg}
@@ -92,7 +95,7 @@
 
 \setlength{\footskip}{0.5in}
 
-\setcounter{tocdepth}{2}
+\setcounter{tocdepth}{3}
 \renewcommand{\contentsname}{Table of Contents}
 \tableofcontents
 \cleardoublepage
@@ -119,6 +122,7 @@
 \centerline{\LARGE 
 To my family, my friends, \& my teachers.
 }
+\todo[inline, color=green]{Write dedication}
 \vfill \strut
 \cleardoublepage
 
