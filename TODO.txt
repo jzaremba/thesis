@@ -6,3 +6,5 @@
 * Fix Dupret figure.
 * SIMA chapter?
 * Copy figure legends exactly?
+* Attractor Dynamics in the Hippocampal Representation of the Local Environment
+* Spatial firing properties of hippocampal CA1 populations in an environment containing two visually identical regions.

@@ -4,9 +4,14 @@
 
 \section{\emph{In vivo} two-photon Ca\super{2+} imaging}
 All of my experiments revolved around two-photon Ca\super{2+} imaging in hippocampal area CA1 of head-fixed mice using genetically-encoded calcium indicators (GECIs), in particular GCaMP6f.
-In vivo Ca{2+} imaging allowed me to record the activity of hundreds of pyramidal cells or multiple axonal projection fibers simultaneously and, importantly, follow the same cells or fibers for multiple days.
-During my thesis work, the most significant upgrade to our imaging capabilities was the addition of resonant scanning capabilities, which increased our imaging rate by roughly a factor of 10.
-This allowed for up to a 10 times increase in both temporal and spatial resolution, which greatly improved the quality of our imaging data.
+In vivo Ca{2+} imaging provides several essential advantages over \emph{in vivo} electophysilogical approahces which I made use of in my thesis work.
+First, a typical field of view will contain 500-1000 pyramidal cells, allowing me to rapidly collect data from a large number of cells.
+Second, registering fields of view from day-to-day let me reliably track the same cells for up to 2~weeks. The main experimental task that I used (\nameref{sec:intro:techniques:GOL}) was a 9-day protocol and tracking the same cells across those 9 days was essential.
+Finally, Ca\super{2+} imaging allows for recording activity from cellular compartments other than the soma -- such as dendrites, axons, and even synaptic boutons.
+These same recordings are technically very difficult with electrophysiological approaches, and most likely impossible to do over long timescales.
+I took advantage of this ability in imaging axons and boutons of long-range inhibitory projections (LRIPs) from lateral entorhinal cortex to \emph{stratum locunosum-moleculare} in CA1 (see \autoref{sec:other:LRIP}).
+
+During my thesis work, the most significant upgrade to our imaging capabilities was the addition of resonant scanning capabilities, which allowed for an up to a 10 times increase in both temporal and spatial resolution, thus greatly improving the quality of our imaging data.
 The upgrade also required a corresponding upgrade to our analysis pipeline and server design to handle the significantly increased quantity of data acquired (see below).
 
 \section{Head-fixed behavior}\label{sec:intro:techniques:behavior}
@@ -93,7 +98,7 @@ For hippocampal area CA1 pyramidal cells imaged with GCaMP6f in a well-trained m
 As an additional step to aid the robustness of the precise window sizes, we also implemented an iterative procedure where after calculating $\Delta F/F$ we identified significant Ca\super{2+} events (see \autoref{sec:df:methods:transients}) and then re-calculated the $\Delta F/F$ while removing the identified Ca\super{2+} transients from the baseline.
 This prevents errors in the baseline calculation for any cells that do not have a 3 second period of quiescence every minute, and was generally repeated 3 times to ensure an accurate baseline calculation.
 
-\subsection{Place cell identification}
+\subsection{Place cell identification}\label{sec:intro:techniques:pc_id}
 Pyramidal cells in the mammalian hippocampus fire at specific locations within a familiar environment.
 We developed an algorithm to reliably identify cells that had a significantly higher mutual information between the mouse's position and the Ca\super{2+} activity of the cell than expected by chance.
 The overall goal of our analytical approach is to identify as un-­biased a population of spatially-­tuned cells as possible.
@@ -161,6 +166,24 @@ lab.plotting.plot_dataframe(
 \end{figure}
 
 
-\subsection{Place cell stability}\label{sec:intro:techniques:place-cells}
+\subsection{Place cell stability}\label{sec:intro:techniques:stability}
+Quantifying the stability of spatial maps is fundamental to most of my thesis work.
+There are five commonly used methods for quantifying similarity that I implemented in our analysis package that I will touch on briefly:
+\begin{itemize}
+	\item{place cell recurrence}
+	\item{place field correlation}
+	\item{population vector correlation}
+	\item{centroid shift}
+	\item{firing rate overlap}
+\end{itemize}
 
+Place cell \textsc{recurrence probability} is defined between a pair of sessions as the fraction of place cell for the first session that are still identified as place cells in the second session. The null hypothesis that the place cell populations are independent both days would suggest a recurrence probability equal to the fraction of place cells in the second session. This measure captures the stability of the spatially-active population from session-to-session.
 
+\textsc{Place field (PF) correlation} is the correlation between the tuning curve of a cell at two different time points. I subdivided the treadmill belt into 100 evenly-sized bins (each $\approx$2~cm), so every place cell is defined by a 100-element vector of occupancy-normalized Ca\super{2+} transient rates (see \nameref{sec:intro:techniques:pc_id}). The correlation between these vectors gives the place field correlation for that pair of sessions, and these values can be averaged across cells to give a measure of the population stability.
+While this is perhaps the most commonly used metric of place cell stability, it is not our preferred measure for quantifying stability of Ca\super{2+} transient-defined place cells.
+For Ca\super{2+} data, a perfect place cell will fire a single large transient in the same spatial bin every lap.
+This can lead to very spatially-sparse rate maps, as compared to spike-based activity.
+Consequently, if the firing location ships very minimally the preferred firing spatial bins may no longer overlap at all, leading to a correlation close to 0, when in fact, the firing has not changed very much.
+
+\textsc{Population vector (PV) correlation} is similar to PF correlation but measures the correlation across cells at each spatial bin, instead of the correlation across spatial bins for each cell. This metric is calculated by `stacking' place field tuning curves for each cell, which 
+\todo[inline, color=red]{Finish describing stability metrics.}
