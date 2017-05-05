@@ -4,7 +4,7 @@
 
 \section{\emph{In vivo} two-photon Ca\super{2+} imaging}
 All of my experiments revolved around two-photon Ca\super{2+} imaging in hippocampal area CA1 of head-fixed mice using genetically-encoded calcium indicators (GECIs), in particular GCaMP6f.
-In vivo Ca{2+} imaging provides several essential advantages over \emph{in vivo} electophysilogical approahces which I made use of in my thesis work.
+In vivo Ca\super{2+} imaging provides several essential advantages over \emph{in vivo} electrophysiological approaches which I made use of in my thesis work.
 First, a typical field of view will contain 500-1000 pyramidal cells, allowing me to rapidly collect data from a large number of cells.
 Second, registering fields of view from day-to-day let me reliably track the same cells for up to 2~weeks. The main experimental task that I used (\nameref{sec:intro:techniques:GOL}) was a 9-day protocol and tracking the same cells across those 9 days was essential.
 Finally, Ca\super{2+} imaging allows for recording activity from cellular compartments other than the soma -- such as dendrites, axons, and even synaptic boutons.
@@ -14,7 +14,8 @@ I took advantage of this ability in imaging axons and boutons of long-range inhi
 During my thesis work, the most significant upgrade to our imaging capabilities was the addition of resonant scanning capabilities, which allowed for an up to a 10 times increase in both temporal and spatial resolution, thus greatly improving the quality of our imaging data.
 The upgrade also required a corresponding upgrade to our analysis pipeline and server design to handle the significantly increased quantity of data acquired (see below).
 
-\section{Head-fixed behavior}\label{sec:intro:techniques:behavior}
+\section{Head-fixed behavior}
+\label{sec:intro:techniques:behavior}
 In order to allow for two-photon Ca\super{2+} imaging in awake mice, we need to design all behavioral tasks to work while mice are head-fixed under a two-photon microscope.
 While the core apparatus was in place when I began experiments, extensive upgrades were necessary to optimally run my head-fixed learning tasks.
 I, along with colleagues in the lab, redesigned the wheels, axles, and platform to minimize friction and facilitate running while head-fixed.
@@ -29,7 +30,8 @@ All head-fixed paradigms begin with 1-2 weeks of training where mice learn to li
 Mice were either operantly rewarded (they must lick to receive water) at random intervals along the belt or non-operantly at a fixed location.
 This allowed me to look at baseline stability of spatial maps with two-photon Ca\super{2+} imaging over days or weeks (see \autoref{sec:applications:chronic}).
 
-\subsection{Goal-oriented learning}\label{sec:intro:techniques:GOL}
+\subsection{Goal-oriented learning}
+\label{sec:intro:techniques:GOL}
 In order to study spatial learning and memory while simultaneously imaging functional activity of hippocampal area CA1 place cells, I developed a head-fixed \ac{GOL} task.
 Freely-moving assays of spatial memory in rodents traditionally include the Morris water maze, Barnes maze, or cheese board maze (see \autoref{sec:intro:memory:spatial-reward}).
 While head-fixed under a two-photon microscope, mice are constrained to run in effectively a one-dimensional environment (similar to freely moving linear track paradigms) and there are limited options to experimentally assay choices made by the mice.
@@ -56,7 +58,8 @@ This particular measure can be misleading if the mice lick everywhere along the 
 In addition we often look at measures such as \textsc{anticipatory licking}, which quantify the fraction of licks directly preceding the reward, but crucially exclude licks in response to water delivery, though this measure has proven to be less-sensitive to learning.
 Finally, the setup allows the experimenter to move the reward to any arbitrary location along the belt, swap out belts to modify the environment, and manipulate non-spatial odor/tone/light cues to change the surrounding context (\ref{item:into:techniques:GOL:manip}).
 
-\section{Data analysis pipeline}\label{sec:intro:techniques:pipeline}
+\section{Data analysis pipeline}
+\label{sec:intro:techniques:pipeline}
 A typical 10 minute imaging session generates a $\approx$15~GB raw movie that needs to be processed down to a single spatial tuning vector for each of approximately 500 cell somas in the field of view.
 Processing each movie requires identifying regions of interest (ROIs), extracting fluorescent signals from each ROI, cleaning up each trace by calculating changes in fluorescence, identifying significant Ca\super{2+} events, aligning Ca\super{2+} event times to the mouses' position in the behavioral environment, and finally calculating place fields for each cell.
 Place fields from a single session can tell us how the mice represent the environment in a given session, but to address some of the more interesting questions I wanted to ask how these representations changed over time.
@@ -73,7 +76,8 @@ I will focus here on the pieces that I personally originated or was the primary 
 \end{figure}
 
 
-\subsection{Initial processing}\label{sec:intro:techniques:inital}
+\subsection{Initial processing}
+\label{sec:intro:techniques:inital}
 Imaging data acquired through our microscope software (PraireView) is stored as an individual TIFF image file for every frame of every plane and channel.
 This can lead to over 30,000 files per 10 minute recording session, which very quickly becomes difficult to manage.
 So, the first step after running an experiment is to move all the data to a special \textsc{scratch} folder on our lab server, where I have a script constantly running to convert all of the data into one large HDF5 file (\url{https://www.hdfgroup.org/HDF5/}).
@@ -98,7 +102,8 @@ For hippocampal area CA1 pyramidal cells imaged with GCaMP6f in a well-trained m
 As an additional step to aid the robustness of the precise window sizes, we also implemented an iterative procedure where after calculating $\Delta F/F$ we identified significant Ca\super{2+} events (see \autoref{sec:df:methods:transients}) and then re-calculated the $\Delta F/F$ while removing the identified Ca\super{2+} transients from the baseline.
 This prevents errors in the baseline calculation for any cells that do not have a 3 second period of quiescence every minute, and was generally repeated 3 times to ensure an accurate baseline calculation.
 
-\subsection{Place cell identification}\label{sec:intro:techniques:pc_id}
+\subsection{Place cell identification}
+\label{sec:intro:techniques:pc_id}
 Pyramidal cells in the mammalian hippocampus fire at specific locations within a familiar environment.
 We developed an algorithm to reliably identify cells that had a significantly higher mutual information between the mouse's position and the Ca\super{2+} activity of the cell than expected by chance.
 The overall goal of our analytical approach is to identify as un-­biased a population of spatially-­tuned cells as possible.
@@ -166,7 +171,8 @@ lab.plotting.plot_dataframe(
 \end{figure}
 
 
-\subsection{Place cell stability}\label{sec:intro:techniques:stability}
+\subsection{Place cell stability}
+\label{sec:intro:techniques:stability}
 Quantifying the stability of spatial maps is fundamental to most of my thesis work.
 There are five commonly used methods for quantifying similarity that I implemented in our analysis package that I will touch on briefly:
 \begin{itemize}
@@ -185,5 +191,30 @@ For Ca\super{2+} data, a perfect place cell will fire a single large transient i
 This can lead to very spatially-sparse rate maps, as compared to spike-based activity.
 Consequently, if the firing location ships very minimally the preferred firing spatial bins may no longer overlap at all, leading to a correlation close to 0, when in fact, the firing has not changed very much.
 
-\textsc{Population vector (PV) correlation} is similar to PF correlation but measures the correlation across cells at each spatial bin, instead of the correlation across spatial bins for each cell. This metric is calculated by `stacking' place field tuning curves for each cell, which 
-\todo[inline, color=yellow]{Finish describing stability metrics.}
+\textsc{Population vector (PV) correlation} is similar to PF correlation but measures the correlation across cells at each spatial bin, instead of the correlation across spatial bins for each cell.
+This metric is calculated by `stacking' place field tuning curves for each cell, and then calculating the correlation between the activity of all the cells at the \textit{same location} from two different sessions.
+For my experiments I always binned the data into 100 evenly spaced bins, so for every pair of session I calculate the correlation between 100 population vectors corresponding to each of the 100 spatial bins.
+This metric can be used in two separate ways.
+First, by averaging across spatial bins we can determine the mean stability of \textit{positions} instead of \textit{cells}, a subtle, but sometimes meaningful distinction.
+Also, if we do not average across positions, we can use this measure to look for positions that are specifically more/less stable, such as around the reward location.
+
+\textsc{Centroid shift} is defined per cell as the distance between the center of its place field in two sessions.
+We use two separate measures to identify the centroid of a place field.
+The first is the more traditional measure, which is the center of mass of transients along the belt.
+We define the centroid of each place field separately, so we only use transients that occurred within the place fields when calculating the centroid, and then take the centroid of the place field that had the peak transient rate.
+% $$ COM_j = \frac{1}{N}\sum^n_{i=1} m_i r_i,$$
+% where $COM_j$ is the center of mass of the $j^{th}$ place field, $N$ is the number of transients, $m_i$ is the weight of each transient 
+\todo[color=green]{Equations for calculating pf centroid?}
+In general, I calculated the centroid shift as the absolute value of the distance between the centroids as a fraction of belt, so all values are on $[0, 0.5]$.
+An alternative version of the centroid shift ignores place fields and instead represents every transient on the unit circle such that the angle is the position on the circular treadmill and the length is inversely related to the occupancy of that position.
+By taking the vector sum of these transient vectors, we can calculate a \textsc{spatial tuning vector}, for each cell for each session (for more details see, \autoref{sec:df:methods:pc_properties}).
+Finally, the centroid shift is then defined by the minimum angle between two spatial tuning vectors.
+This implementation does not care about place fields, so it is defined for every cell that fires at least 1 transient, which is how I looked at stability of the entire pyramidal cell population.
+The main caveat with this measure is that multi-peaked place fields will not be handled correctly, as for example, a place cell with two peaks will have a spatial tuning vector that falls between them.
+
+\textsc{Firing rate overlap} is the similarity of firing rate for a cell between two session. It is simply defined as:
+$$\frac{\min{r_1, r_2}}{\max{r_1, r_2}},$$
+where $r_1$ and $r_2$ are the firing rates on the first and second session respectively.
+This definition means that overlap is defined on $[0, 1]$, with a value of $1$ corresponds to the cell having the same firing rate on both sessions, and a value of $0$ corresponds to a cell that was silent one of the two sessions.
+This measure is not defined if the cell was silent both sessions, so those cells were excluded from all analysis.
+I generally used transient frequency as a proxy for firing rate, but measures such as the mean of the Ca$^{2+}$ trace or the area under the Ca$^{2+}$ trace during transients worked as well.
