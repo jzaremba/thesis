@@ -61,11 +61,11 @@ My main thesis project investigated spatial-reward memory to inform on episodic 
 \textsc{Spatial memory} is the aspect of our memory that instills our sense of direction and allows us to know where we are at any given time (our personal `GPS'), imagine or plan where we will be in the future, and know where we were when we recall particular memories.
 We use spatial memory to navigate our world.
 Spatial navigation consists of two primary components: location relative to an allocentric map of the world, and egocentric update cues arising from orientation and other vestibular input.
-The dominance of allocentric or egocentric navigation depends upon the precise nature of the environment being explored; egocentric dominates in cue-rich environments, while allocentric navigation dominates when landmarks are lacking or in the dark \citep{Knierim1998}\citep{Markus1994}.
+The dominance of allocentric or egocentric navigation depends upon the precise nature of the environment being explored; egocentric dominates in cue-rich environments, while allocentric navigation dominates when landmarks are lacking or in the dark \citep{Knierim1998, Markus1994}.
 
 Spatial memory has been studied extensively in rodents, in large part because it a well-defined and tractable area of research.
 As rodents can not be asked to recall past events, we need assays that can probe for evidence of these memories (\nameref{sec:intro:memory:spatial-reward}).
-Not only do we have good behavioral tests for spatial memory in rodents, but we have identified the cognitive map of the memory itself (\nameref{ec:intro:memory:spatial_maps}).
+Not only do we have good behavioral tests for spatial memory in rodents, but we have identified the cognitive map of the memory itself (\nameref{sec:intro:memory:spatial_maps}).
 % Allocentric navigation in particular is \ac{HPC}-dependent \citep{OKeefe1978, Smith1989}, not egocentric.
 
 \subsubsection{Spatial memory as episodic memory}
@@ -90,7 +90,7 @@ While there is variability in the details of the protocol, the general structure
 Briefly, the `maze' is a large water-filled tub with a single hidden platform under the surface of the water.
 Mice or rats are placed in the maze and over successive trials eventually learn to use distal cues around the room to locate the platform.
 Probe trials generally consist of removing the platform and scoring the fraction of time spent in the correct quadrant as a measure of spatial memory.
-More recently, virtual reality variations of the Morris water maze have been developed that allow for head-fixed spatial learning tasks in rodents \citep{Aronov2014} or the ability to mirror rodent experimental paradigms in humans \citep{XXXX}.
+More recently, virtual reality variations of the Morris water maze have been developed that allow for head-fixed spatial learning tasks in rodents \citep{Aronov2014} or the ability to mirror rodent experimental paradigms in humans \citep{Astur1998}.
 Virtual reality water mazes have been to study spatial memory in \scz/ patients, which I will discuss later (\autoref{sec:intro:scz:spatial}).
 
 One particular variation is the annular water maze used by \citeauthor{Hollup2001a}, which adds an inner wall to the large circular pool creating a `one-dimensional' circular track that the mice swim around.
@@ -107,7 +107,7 @@ In particular, the authors find an accumulation of place cells around the escape
 	\label{fig:intro:memory:hollup}
 \end{figure}
 
-Conceptually similar, but drier, are the Barnes or cheeseboard maze \citep{Barnes1979}\citep{Kesner1991}\citep{Dupret2010a}.
+Conceptually similar, but drier, are the Barnes or cheeseboard maze \citep{Barnes1979, Kesner1991, Dupret2010a}.
 These mazes consist of a large platform with holes throughout.
 These holes can either be escapes for the mice/rats to avoid the exposed platform, or baited/rewarded.
 Either way, the degree of learning can be quantified by latency to finding the correct location or time spent near previously rewarded locations during un-rewarded probe trials.
@@ -233,20 +233,23 @@ Finally, the \ac{HPC} is also targeted by afferents from neuromodulatory nuclei,
 
 \subsection{Memory at the synapse}
 \todo[inline, color=red]{NMDAR/LTP, Tonegawa NMDAR KO mouse}
-\citep{Tsien1996}\citep{McHugh1996}\citep{Dragoi2013}\citep[reviewed in,][]{Nakazawa2004}
+\citep{Tsien1996, McHugh1996, Dragoi2013}\citep[reviewed in,][]{Nakazawa2004}
 late-phase of LTP in CA1 depends on D1/D5 receptor antagonists \citep{Huang1995}.
 Long-term stability of spatial maps is impaired by blocking NMDARs \citep{Kentros1998}.
+HCN1-KO mouse \citep{Hussaini2011}
+CA3 NMDAR for recall \citep{Nakazawa2002}
 
 \section{Functional correlates of memory}\label{sec:intro:memory:physiology}
 
 % \subsection{Memory engrams}
 % \todo[color=yellow]{Memory engrams section?}
 
-\subsection{Spatial maps}\label{sec:intro:memory:spatial_maps}
+\subsection{Spatial maps}
+\label{sec:intro:memory:spatial_maps}
 Perhaps the best-studied `engrams' in the mammalian brain are hippocampal place cells.
 Throughout the \ac{HPC} (dentate gyrus, CA3, CA2, and CA1) there are principal cells that fire selectively at specific locations within an environment (\textsc{place cells}).
-As an animal explores an environment these pyramidal cells show sparse spatially-modulated changes in firing rates that are established rapidly and subsequently remain stable \citep{O'Keefe1971}\citep{Thompson1990}\citep{Frank2004}.
-These place cells form an allocentric map of the environment, which is essential for normal episodic memory function \citep{Smith2006c}\citep{Nakazawa2004}\citep{Buzsaki2013}.
+As an animal explores an environment these pyramidal cells show sparse spatially-modulated changes in firing rates that are established rapidly and subsequently remain stable \citep{O'Keefe1971, Thompson1990, Frank2004}.
+These place cells form an allocentric map of the environment, which is essential for normal episodic memory function \citep{Smith2006c, Nakazawa2004, Buzsaki2013}.
 Our understanding of place cells is a uniquely well-characterized functional mapping of the real world multiple synapses from both sensory and motor cortices.
 Within the entorhinal cortex, principal cells take on a variety of spatial firing properties, but one of the main categories are cells that fire at regularly spaced intervals throughout an environment (\textsc{grid cells}) \citep{Hafting2005, Moser2014a}.
 Place cells and grid cells together form the cellular foundation for the mammalian navigation system, and their discovery was recently awarded with the Nobel Prize in Medicine.
@@ -264,14 +267,14 @@ Place cells and grid cells together form the cellular foundation for the mammali
 
 \subsubsection{Remapping}
 Place cells, like other forms of memory, are constantly trying to balance two competing constraints: on the one hand, their firing needs to be stable in order to be a helpful representation of the environment, but on the other hand, their firing needs to be plastic enough to constantly encode new environments, forget irrelevant information, and adapt to new features.
-Place cells changing their firing properties to incorporate new features of the world is known as \textsc{remapping} \citep{Muller1987}\citep{Leutgeb2005a}\citep{Colgin2008}.
+Place cells changing their firing properties to incorporate new features of the world is known as \textsc{remapping} \citep{Muller1987, Leutgeb2005a, Colgin2008}.
 A given place cell is defined by it's spatial tuning -- it's place field -- and it's firing rate gain within the place field.
 These seem to be independent factors, as either can remap separately.
 \textsc{Global remapping} is the collective remapping of place field locations across a population of place cells.
 Alternatively, \textsc{rate remapping} is a change in place field gain (the ratio of firing rate in to out of the place field), while place fields locations remain fixed.
 
 Global remapping is generally triggered by discrete changes to environmental conditions \citep{Leutgeb2004, Leutgeb2005a}, but can also be triggered by particularly salient events \citep{Moita2004}.
-The sudden and collective remapping of firing fields support the notion of place fields arising from discrete attractor states \citep{Jeffery2011a}, though the discreteness of the transition seems to depend on the specifics of the environmental manipulations \citep{Wills2005}\citep{Leutgeb2005b}\citep{Jezek2011}.
+The sudden and collective remapping of firing fields support the notion of place fields arising from discrete attractor states \citep{Jeffery2011a}, though the discreteness of the transition seems to depend on the specifics of the environmental manipulations \citep{Wills2005, Leutgeb2005b, Jezek2011}.
 In contrast, rate remapping preserves firing fields (and grid cell firing), but the firing rate of place cells changes across the population.
 This separation of position and rate coding has lead to the hypothesis that they code for spatial and episodic memory, respectively \citep{Leutgeb2005a}.
 Indeed, while place field location is closely tied to grid cell activity in the medial entorhinal cortex, rate remapping depends specifically on lateral entorhinal inputs, which convey contextual information \citep{Lu2013}.
@@ -285,13 +288,13 @@ The complete population remapping of global remapping and the `rate-only' remapp
 More generally, the \textsc{stability} of place cells populations varies with elapsed time and environment novelty, is affected by neuromodulation, and differs by hippocampal subfield.
 In area CA1, the place cell population changes over time, such that similarity of activity is greatest at short time scales and decays over time \citep{Mankin2012}.
 In contrast, place cell firing is more stable over time in CA3, providing a means to both stably represent a given environment and also distinguish different experience by recency.
-Place fields form rapidly ($<$10~min) and quickly stabilize \citep{Frank2004} and can remain stable for months with the right conditions \citep{Thompson1990}\citep{Lever2002a}\citep{Ziv2013}.
+Place fields form rapidly ($<$10~min) and quickly stabilize \citep{Frank2004} and can remain stable for months with the right conditions \citep{Thompson1990, Lever2002a, Ziv2013}.
 This long-term stability is NMDA-receptors dependent \citep{Kentros1998} and appears to be a fundamental feature of the hippocampal spatial memory circuit.
 That being said, several factors have been shown to influence the stability of place cell tuning.
 \citeauthor{Moita2004} trained mice in two chambers to establish separate place maps in both locations.
 After becoming familiar to both, rats underwent a contextual fear conditioning protocol in one of the chambers, which selectively induced remapping in that one chamber, while place cells in the control chamber remained stable \citep{Moita2004}.
 In addition, \citeauthor{Kentros2004} showed that increasing spatial saliences correlated with increased place field stability, and also showed that the stability could be modulated by systemic administration of dopamine D1/D5 receptor agonist/antagonists \citep{Kentros2004}, possibly through the dependence of CA1 LTP on D1/D5 receptor activity \citep{Kentros1998}.
-Place cell stability is a fundamental aspect of my main project (\autoref{ch:def}), as I also looked at place field stability as it relates to context novelty and task demands.
+Place cell stability is a fundamental aspect of my main project (\autoref{ch:df}), as I also looked at place field stability as it relates to context novelty and task demands.
 My main findings in wildtype mice agree with what was shown previously, but I also see disruptions in these normal stability mechanisms in \df/ mice.
 
 \begin{figure}
