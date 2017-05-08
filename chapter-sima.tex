@@ -38,14 +38,14 @@ are freely available at \url{http://www.losonczylab.org/sima/}.
 \section{Introduction}
 
 Two-photon fluorescence imaging of neuronal populations has proven to be a powerful method for studying dynamic signals in neural circuits.
-For example, imaging of genetically-encoded fluorescent Ca\super{2+} indicators \citep{looger2012genetically} has been widely applied to simultaneously monitor the activity in large populations of spatially, morphologically, or genetically identified neurons.
-These methods can be implemented \textit{in vivo} in awake rodents \citep{Dombeck2007,Komiyama2010,Lovett-Barron2014}, 
-providing the potential to study the molecular, anatomical, and functional properties of neurons responsible for behavior \citep{Kerr2008,OConnor2010a}.
+For example, imaging of genetically-encoded fluorescent Ca\super{2+} indicators \citep{Looger2012} has been widely applied to simultaneously monitor the activity in large populations of spatially, morphologically, or genetically identified neurons.
+These methods can be implemented \textit{in vivo} in awake rodents \citep{Dombeck2007, Komiyama2010,Lovett-Barron2014}, 
+providing the potential to study the molecular, anatomical, and functional properties of neurons responsible for behavior \citep{Kerr2008, OConnor2010a}.
 Relative to the electrophysiological approaches traditionally used to study neuronal activity \textit{in vivo}, 
 two-photon imaging provides the advantages of recording activity in entire local populations without spike-sorting ambiguities or bias towards highly active neurons,
 imaging activity in subcellular compartments such as axons or dendrites, 
 and tracking the same neurons across experiments spanning multiple days.
-Additionally, fluorescence imaging can be used to measure other signals, such as membrane potentials and neurotransmitter release \citep{looger2012genetically}.
+Additionally, fluorescence imaging can be used to measure other signals, such as membrane potentials and neurotransmitter release \citep{Looger2012}.
 
 
 To facilitate the analysis of data from dynamic fluorescence imaging experiments,
@@ -58,7 +58,7 @@ The ROI Buddy GUI allows for editing and annotating ROIs
 within a given imaging session, as well as registering ROIs across imaging sessions acquired at different times.
 The output data resulting from analysis with SIMA can either be directly
 analyzed using the NumPy/SciPy tools for scientific computing 
-\citep{Oliphant2007,Jones2001}, or can be exported to common formats
+\citep{Oliphant2007, Jones2001}, or can be exported to common formats
 allowing for subsequent analysis with other software.
 The SIMA package and ROI Buddy GUI can be run on Linux, Windows, and MacOS
 operating systems, have been made freely available under an open source
@@ -239,7 +239,7 @@ This function takes the same arguments used to directly initialize an
 \verb|ImagingDataset| object, as well as additional arguments for specifying
 parameters for the motion correction procedure.
 One optional argument allows for specification of the number of states retained 
-at each step of the Viterbi algorithm (see Section \ref{sec:sima:viterbi} for details).
+at each step of the Viterbi algorithm.
 Retaining a larger number of states may in some cases result in more accurate
 displacement estimates, though at the expense of longer run-times.
 The maximum allowable displacement in the horizontal and vertical directions 
@@ -279,7 +279,6 @@ method call.
 The SIMA package currently contains two implemented segmentation methods,
 \verb|'normcut'| and \verb|'ca1pc'|, 
 both of which are based on the normalized cuts approach \citep{Shi2000}.
-Further details on these particular segmentation approaches are provided in Section \ref{sec:sima:details:segment}.
 
 A call to the \verb|segment| method returns an \verb|ROIList| object,
 which contains the segmented \verb|ROI| objects.
@@ -287,7 +286,7 @@ As well, \verb|ROI| objects can be initialized independently in one of four ways
 (1) with a mask, typically a NumPy array, indicating the weight of each pixel (see Section \ref{sec:sima:details:extraction}),
 (2) with a list of polygons, each consisting of a list of vertices,
 (3) using ROI Buddy (see Section \ref{sec:sima:ROIbuddy}), or
-(4) by importing a set of ROIs created in ImageJ \citep{schneider2012nih}.
+(4) by importing a set of ROIs created in ImageJ \citep{Schneider2012}.
 Masks can either be binary, to select a subset of pixels, or real-valued, as in the case of
 weights resulting from principal or independent component analysis.
 Polygons are treated equivalently to binary masks.

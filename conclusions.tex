@@ -5,25 +5,28 @@
 \section{Summary}
 In the preceding chapters I have laid out an understanding of memory in general, but also more specifically spatial-episodic memory, the structure in the brain that supports it (the hippocampus) and place cells as the functional units of these memories (\autoref{ch:intro:memory}).
 I have explained the symptoms that define \scz/, particularly the cognitive deficits which are most relevant for functional recovery, yet least treatable, and identified some of the underlying genetic risk factors and proximate causes (\autoref{ch:intro:scz}).
-I described the techniques that I employed inf my experiments as well and the tools I developed to run the experiments and analyze the data (\autoref{ch:intro:techniques}).
+I described the techniques that I employed in my experiments as well and the tools I developed to run the experiments and analyze the data (\autoref{ch:intro:techniques}).
 I next presented my primary thesis work; the characterization of hippocampal area CA1 pyramidal cell functional alterations during spatial learning in the \df/ mouse model of \scz/ (\autoref{ch:df}).
-In addition, in collaboration I developed a Python package for the initial processing of Ca\super{2+} imaging data that we have released to the broader neuroscience community (\autoref{ch:sima}).
-Supplementing my primary project, I also help characterize the \emph{in vivo} functional properties of long-range inhibitory projections from lateral entorhinal cortex to CA1, adult-born granule cells among the dentate gyrus granule cell population, and developmentally separable sub-populations of pyramidal cells within CA1 (\autoref{ch:other}).
+\todo[color=cyan]{Recapitualtion of the main findings with 4-5 bulletpoints would be useful here.}
+In addition, in collaboration with graduate student colleagues, I developed a Python package for the initial processing of Ca\super{2+} imaging data that we have released to the broader neuroscience community (\autoref{ch:sima}).
+Supplementing my primary project, I also helped characterize the \emph{in vivo} functional properties of long-range inhibitory projections from lateral entorhinal cortex to CA1, adult-born granule cells among the dentate gyrus granule cell population, and developmentally separable sub-populations of pyramidal cells within CA1 (\autoref{ch:other}).
 
-It's worth noting that that while my main paper primarily looked to understand aberrant hippocampal activity in the \df/ mouse during spatial-reward learning task, my data also is interesting from the reverse perspective of understanding normal hippocampal function during a spatial-reward learning task.
+
+\subsection{What we learned about memory}
+
+By performing some of the first functional \emph{in vivo} imaging experiments in the \ac{HPC} I characterized the \emph{in vivo} activity of novel circuit elements and showed how this activity mapped on to behavior.
+
+It's worth noting that that while my main work primarily looked to understand aberrant hippocampal activity in the \df/ mouse during spatial-reward learning task, my data also is interesting from the reverse perspective of understanding normal hippocampal function during a spatial-reward learning task.
 We have shown that the \df/ mouse is a model of impaired global remapping (context stability) and goal-related remapping (enrichment), two fairly complicated properties of neuronal circuits that would otherwise be very difficult, if not impossible, to manipulate.
 From this perspective, my data provides evidence that inducing global remapping or preventing reward-zone place cell enrichment impairs spatial-reward memory.
 
-% \subsection{What we learned about memory}
+\todo[inline, color=cyan]{discuss modeling results}
 
-% It's impossible to talk about declarative memory without quickly getting to discussions of the \ac{HPC}.
-% By performing some of the first functional \emph{in vivo} imaging experiments in the \ac{HPC} I characterized the \emph{in vivo} activity of novel circuit elements and showed how this activity mapped on to behavior.
+\subsection{What we learned about \scz/}
 
+Minor changes to context resulted in global remapping in \df/ mice, lending support to the idea of \scz/ as a disorder of aberrant salience.
 
-
-% \subsection{What we learned about \scz/}
-
-% Minor changes to context resulted in global remapping in \df/ mice, lending support to the idea of \scz/ as a disorder of aberrant salience.
+\todo[inline, color=cyan]{SCZ memory deficit beyond hippocampus -- systems model: altered afferent-efferent information flow -- from/to HPC -- good link to in vivo imaging axonal projections.}
 
 \section{Future directions}
 
@@ -35,24 +38,29 @@ From this perspective, my data provides evidence that inducing global remapping 
 % new mice
 
 \subsection{Context generalization}
+\todo[color=cyan, inline]{You can link it here with Basu et al -- role of long range and modulatory inputs in context discrimination and generalization and their potential alterations in SCZ.}
 My \ac{GOL} task tested two fundamentally different aspects of spatial memory: How do spatial maps change in response to small changes to the environment (Condition~I \& II)? and How do spatial maps support the encoding of salient reward locations (Condition~II \& III)?
 I found an interesting differential effect between WT and \df/ mice in both of these tasks, so it would be interesting to explore each of these in more detail.
 In particular, my context remapping results suggests that the \df/ mis-attend to stimuli that the wildtype mice ignore, which manifests as an over-separation of similar contexts as seen by impaired task performance and also the global remapping of spatial maps between the two similar contexts.
 This could be looked at in more detail by systematically modifying the two contexts to have varying degrees of symmetry and look at similarity of spatial maps between the two contexts while performing a context discrimination task.
 
-\subsection{Interneurons}
-Hippocampal area CA1 consists not only of a dense pyramidal cell layer, but also diverse populations of local GABAergic interneurons which control pyramidal cell spiking \citep{Freund1996}.
-Two main classes of pyramidal cell-targeting GABAergic neurons -- dendrite-targeting (e.g. somatostatin-positive; SST+) and soma-targeting (e.g. parvalbumin-positive: PV+) interneurons -- have been shown to directly modulate pyramidal cell burst spiking and theta phase repsectively \citep{Royer2012, Lovett-Barron2012}.
-A third potentially interesting classification of interneurons in the \ac{HPC} are the interneuron-targeting vasointestinal peptide expressing (VIP+) interneurons, which are less well understood, but can drive \ac{HPC} pyramidal cell activity though disynaptic disinhibition \citep{Chamberland2012}.
-\todo[color=yellow]{Expand on VIP cells}
-Importantly, an excitatory-inhibitory imbalance has also been implicated as a possible root cause of \scz/ progression (see \autoref{sec:intro:scz:glutamate}).
+The EC-DG-CA3 circuit has been implicated in `pattern separation' and `pattern completion'  as a means for distinguishing similar contexts and generalizing to slightly different contexts (see \autoref{sec:intro:memory:hpc_comp}).
+My work on \ac{abGCs} highlighted their role in context discrimination (\autoref{sec:other:DG}) and their is also evidence that adult neurogenesis may be altered in \scz/ \citep[reviewed in,][]{Toro2007}, which is perhaps not surprising given the developmental origin of \scz/ (\autoref{sec:intro:scz:neurodevelopment}).
+Recording from \ac{abGCs} in the \df/ mouse model may provide insight into possible disruptions of adult neurogenesis in \scz/.
+Alternatively, non-spatial, contextual information arrives to the \ac{HPC} through a distinct circuit pathway which includes a \ac{LRIP} from the \ac{LEC} (see \autoref{sec:intro:memory:hpc_comp}).
+I performed the first awake, \emph{in vivo} functional imaging recordings of this projection which confirmed that they carry information about salient features of the environment (see \autoref{sec:other:LRIP} \& \citet{Basu2016})....
+\todo[color=yellow]{finish LRIP for context in \df/}
+
+\subsection{Hippocampal GABAergic interneurons}
+Hippocampal GABAergic \ac{INs} provide robust control of the local hippocampal circuit (\autoref{sec:intro:memory:INs}).
+Disruptions in both excitatory synaptic machinery and interneuron networks has been implicated as a possible root cause of \scz/ progression, though beyond gross neuroanatomical differences, the specific functional disruptions in GABAergic \ac{INs} in \scz/ are not well understood (see \autoref{sec:intro:scz:glutamate}).
 Goal oriented learning-related reorganization of hippocampal CA1 interneuron activity has been recently demonstrated \citep{Dupret2013}, suggesting that CA1 GABAergic interneuron activity is closely tied to learning-related remapping of place cell ensembles, but the role of genetically-identified \ac{HPC} GABAergic inhibitory circuits during normal and diseased learning and memory has not been characterized.
 In particular, the paper by \citeauthor{Dupret2013} shows that interneuron activity evolves with pyramidal cell activity as learning progresses and place cells enrich the reward location.
-It is tempting to infer that interneuron activity is shaping pyramidal cell activity profiles, as it is possible that local interneurons could provide the needed signal to shift place cell firing towards the reward location.
-By recording the activity of dendrite-targeting and soma-targeting interneurons during the \ac{GOL} task I can look for altered activity during Condition~III, when the \df/ mice failed to show any reward enrichment, and also performed poorly on the task.
-\todo[color=yellow, inline]{Include mention of prelim VIP data?}
+It is tempting to infer that interneuron activity is shaping pyramidal cell activity profiles, as it is possible that local \ac{INs} could provide the needed signal to shift place cell firing towards the reward location.
+By recording the activity of dendrite-, soma-,and interneuron-targeting \ac{INs} during the \ac{GOL} task I can look for altered activity during Condition~III, when the \df/ mice failed to show any reward enrichment, and also performed poorly on the task.
+I acquired preliminary data from each of these subclasses of \ac{INs} and while I do not yet have conclusive results, initial analysis suggested interesting difference in running modulation of VIP+ interneuron-targeting \ac{INs}, which could suggest deficits in the precise timing of the release of inhibition to allow for learning during spatial navigation.
 
-\subsection{Imaging during alternate hippocampus-dependent behaviors in \df/ mouse}
+\subsection{Functional dissection of population dynamics with \emph{in vivo} imaging during alternate hippocampus-dependent behaviors in the \df/ mouse}
 Goal-oriented learning, as a test of spatial-episodic memory, was the first behavior -- beyond simple random-foraging tasks -- that we attempted to train the head-fixed \df/ mice to perform.
 It would also be very interesting to analyze behaviors related to other cognitive domains with well-known deficits in the \df/ mice.
 The \df/ mice have a well-established deficit in contextual fear conditioning \citep[CFC,][]{Stark2008} -- they freeze less than wildtype mice -- and we have already adapted CFC for head-fixed imaging \citep[hfCFC,][]{Lovett-Barron2014}.
@@ -72,7 +80,7 @@ By imaging the cholinergic septo-hippocmapal projections in HPC area CA1 we coul
 \subsection{Sharp wave-ripples in \df/ during goal-oriented learning}
 We looked at baseline \ac{SWR} in WT and \df/ mice and found aberrant activity characterized by increased high-frequency power and an increased number of \ac{SWR} events (\autoref{sec:df:results:SWR}).
 This is a very interesting initial finding that could be a fundamental aspect of memory deficits in this mouse.
-SWRs are fundamental to the consolidation and recall of episodic memories \citep[reviewd in,][]{Buzsaki2015}.
+SWRs are fundamental to the consolidation and recall of episodic memories \citep[reviewed in,][]{Buzsaki2015}.
 They have specifically been shown to increase in frequency following rewarded trials in a spatial memory task \citep{Singer2009}.
 In the work by \citeauthor{Dupret2010a} which is conceptually similar to my \ac{GOL} task, the authors found that the the fraction of cells that participated in SWRs during the task (the more cells `remembering') and the similarity of place maps reactivated after the task during SWRs with the place maps near the reward locations during the task (the better they `remembered' the reward) correlated with task performance.
 By recording \ac{SWR} activity during and immediately after our \ac{GOL} task we could  look for disruptions in SWRs directly related to task performance.
@@ -98,7 +106,9 @@ Three possibilities that I would like to further investigate are that enrichment
 \begin{figure}
 	\centering
 	\includegraphics[width=0.9\textwidth]{df/FigSX_anticipatory_licking}
-	\caption{}
+	\caption[Mice anticipate the reward location and the anticipation is predicted by stable spatial maps]{Mice anticipate the reward location and the anticipation is predicted by stable spatial maps. a. Task performance across all conditions of the task (two-way RM ANOVA, Genotype $\times$ Condition interaction, p=0.060).
+	b. Task performance and centroid shift correlation (centroid shift vs. fraction of licks in reward zone, Pearson's correlation coefficient, WT: -0.282, p=0.015; \df/: -0.343, p=0.008).
+	c. Task performance and goal zone place cell enrichment during Condition III (fraction of place cells near reward vs. fraction of licks in reward zone, Pearson's correlation coefficient, WT: 0.418, p=0.008; \df/: -0.119, p=0.503).}
 	\label{fig:conclusions:anticipatory_licking}
 \end{figure}
 % \todo{include nucleus acumbens/VTA}
@@ -114,6 +124,7 @@ By recording either grid cells directly from the medial entorhinal cortex or gri
 % Alternatively, CA1 could itself be the source of enrichment if 
 
 \subsection{Long term stability in place cell population}
+\label{sec:conclusions:chronic}
 One of my first experiments with the \df/ mouse was to look at the long-term stability of CA1 spatial maps in a similar manner as \citeauthor{Ziv2013}.
 Mice were trained to run head-fixed on our same cue-rich multi-fabric belts as I used in the \ac{GOL} task, but only for 1 session each day and the water reward was presented non-operantly once per lap at the same location every day.
 I recorded CA1 pyramidal cell activity for at least 6 days without changing any aspects of the task.
@@ -122,9 +133,10 @@ By looking at the stability between spatial maps at progressively longer elapsed
 \begin{figure}
 	\centering
 	\includegraphics[width=0.9\textwidth]{df/chronic_stability}
-	\caption{}
+	\caption{\df/ place fields are hyper-rigid over the course of a week.}
 	\label{fig:conclusions:chronic_stability}
 \end{figure}
+\todo[color=green]{Write better caption for chronic stability data.}
 
 \citeauthor{Ziv2013} actually found the wildtype mice to be more stable than what I observed, but I think this can be contributed to differences in task protocol.
 In their task, mice were running in an already familiar environment, so the stability observed was reflective of an already stabilized spatial map.
@@ -157,11 +169,15 @@ Assuming that both of these proposed manipulations increase stability in the wil
 \end{figure}
 
 \subsection{Neuromodulators in the \acl{HPC} of \df/ mice}
-Place cell stability can be affected by salience, novelty, and attention, which has been shown to act through neuromodulatory inputs, including dopamine and acetylcholine.
-In addition both dopamine and acetylchline have been implicated in \scz/ disease progression.
-To search for aberrant salience/novelty/atention signaling in the \df/ mice I could directly image the activity of the dopaminergic and cholinergic axons projecting from the ventral tegmental area and medial septum, respectively, to area CA1 of the \ac{HPC}.
-% and then use a combination of pharmacological, optogenetic and pharmacogenetic manipulations of each network component in order to dissect out the underlying circuit mechanisms of spatial memory deficits in the SCZ mutant mice.
-
 Both principal neurons and local GABAergic interneurons are targeted by afferents from neuromodulatory nuclei, including cholinergic and GABAergic projections from the medial septum (MS) \citep{Klausberger2008}, serotonergic and glutamatergic projections from the raphe nuclei \citep{Varga2009}, dopaminergic projections from the ventral tegmental area (VTA) \citep{Gasbarri1997} and noradrenergic projections from the locus coeruleus \citep{Foote1983}.
+The functional consequences of these projections is not completely understood, but place cell stability can be affected by salience, novelty, and attention, which has been shown to act through neuromodulatory inputs, including dopamine and acetylcholine.
 Of these neuromodulatory projections, the dopaminergic-VTA and cholinergic-MS projections are of particular interest, since there is already extensive literature relating dopamine to \scz/ \citep{Davis1991} and the cholinergic projection is involved in normal hippocampal learning and memory \citep{Parent2004}.
 Despite these well-characterized features of hippocampal neuromodulation, it remains unknown how the function of these circuits are altered in \scz/ during hippocampal-dependent behaviors.
+
+To search for aberrant salience/novelty/attention signaling in the \df/ mice I could directly image the activity of the dopaminergic and cholinergic axons projecting from the ventral tegmental area and medial septum, respectively, to area CA1 of the \ac{HPC}.
+Dopamine is proposed to signal salience or reward \citep{Berridge1998}, so based on my findings of mis-attention to minor changes in the environment (\autoref{sec:df:results:context}) and generally impaired reward learning in the \df/ mice (\autoref{sec:df:results:task_performance}), I suspect that I will see an overactive VTA dopamine projection, which might manifest as an indiscriminate increased activity rate, disruptions in the more precise timing of firing around the reward, and/or altered trajectory of activity across days during learning as compared to wildtype mice.
+Dopamine is also involved in the long-term stability of place cells (\autoref{sec:intro:memory:stability}), so aberant dopamine activity may also explain the impaired stability of \df/ spatial maps (\autoref{sec:df:results:stability}).
+In addition, the septal cholinergic projection has been specifically implicated in novelty detection \citep{Jeewajee2008, Barry2012c}, and the \df/ mice appear to have a familiarity-specific deficit in our \ac{GOL} task (\autoref{sec:df:results:enrichment}), so I suggest that we might see abnormal septal-cholinergic activity in the \df/ mice.
+
+
+\todo[color=cyan, inline]{Conclusion/Future Direction: SCZ memory deficit beyond hippocampus – systems concept: altered afferent-efferent information flow - from/to HPC: a. MEC/LEC- maybe altered? - good link to the Basu paper at least for the inhibitory inputs! b. THALAMUS - especially the REUNIENS!! -evidence see in i.	Excitation, inhibition, local oscillations, or large-scale loops: what causes the symptoms of schizophrenia? – Lisman review 2012, see Fig in that review. ii. A thalamo-hippocampal-ventral tegmental area loop may produce the positive feedback that underlies the psychotic break in schizophrenia. Lisman JE, Pi HJ, Zhang Y, Otmakhova NA. (NB: I think Christoph K will want to see something about this and/or he would ask into this. So it is beter to have it in) a. mPFC: you should recap the manuscript discussion (altered functional coupling, theta, SPW-R, WM deficit. The final point could be is that all these afferent and efferent inputs lend themselves for in vivo imaging axonal projections.}

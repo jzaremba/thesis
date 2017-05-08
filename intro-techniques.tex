@@ -3,20 +3,27 @@
 \label{ch:intro:techniques}
 
 \section{\emph{In vivo} two-photon Ca\super{2+} imaging}
-All of my experiments revolved around two-photon Ca\super{2+} imaging in hippocampal area CA1 of head-fixed mice using genetically-encoded calcium indicators (GECIs), in particular GCaMP6f.
+All of my experiments revolved around two-photon \citep{Denk1990} Ca\super{2+} imaging in hippocampal area CA1 of awake head-fixed mice \citep{Dombeck2007} using genetically-encoded calcium indicators \citep[GECIs,][]{Knopfel2012}, in particular GCaMP6f \citep{Chen2013}.
+These methods are based in general on the advances of \citeauthor{Dombeck2007} who established the first \textbf{awake} \emph{in vivo} two-photon recordings in mice and later imaged hippocampal place cells \citep{Dombeck2010}. 
 In vivo Ca\super{2+} imaging provides several essential advantages over \emph{in vivo} electrophysiological approaches which I made use of in my thesis work.
 First, a typical field of view will contain 500-1000 pyramidal cells, allowing me to rapidly collect data from a large number of cells.
-Second, registering fields of view from day-to-day let me reliably track the same cells for up to 2~weeks. The main experimental task that I used (\nameref{sec:intro:techniques:GOL}) was a 9-day protocol and tracking the same cells across those 9 days was essential.
+This large population sampling was a fundamental part of all of my experiments, but most critical in quantifying the nature of reward enrichment in my \ac{GOL} task (\autoref{sec:df:results:enrichment}) and our work on characterizing the activity of the very low-firing rate \ac{DG} granule cells (\autoref{sec:other:DG}).
+Second, actually seeing the cells that I was recording from allowed me to register fields of view from day-to-day and reliably track the same cells for up to 2~weeks.
+The main experimental task that I used (\nameref{sec:intro:techniques:GOL}) was a 9-day protocol and tracking the same cells across those 9 days was essential, and a similar protocol was also used in our work characterizing diversity in pyramidal cells along the radial axis of CA1 (\autoref{sec:other:sf-deep}).
+This project also critically took advantage of the imaging method by visually identifying superficial and deep CA1 pyramidal cell imaging planes.
 Finally, Ca\super{2+} imaging allows for recording activity from cellular compartments other than the soma -- such as dendrites, axons, and even synaptic boutons.
 These same recordings are technically very difficult with electrophysiological approaches, and most likely impossible to do over long timescales.
-I took advantage of this ability in imaging axons and boutons of long-range inhibitory projections (LRIPs) from lateral entorhinal cortex to \emph{stratum locunosum-moleculare} in CA1 (see \autoref{sec:other:LRIP}).
+I took advantage of this ability in imaging axons and boutons of long-range inhibitory projections (LRIPs) from lateral entorhinal cortex to \emph{stratum locunosum-moleculare} in CA1 (see \autoref{sec:other:LRIP}) as our lab has also done in the past \citep{Kaifosh2013}\citep{Lovett-Barron2014}.
 
 During my thesis work, the most significant upgrade to our imaging capabilities was the addition of resonant scanning capabilities, which allowed for an up to a 10 times increase in both temporal and spatial resolution, thus greatly improving the quality of our imaging data.
 The upgrade also required a corresponding upgrade to our analysis pipeline and server design to handle the significantly increased quantity of data acquired (see below).
 
 \section{Head-fixed behavior}
 \label{sec:intro:techniques:behavior}
-In order to allow for two-photon Ca\super{2+} imaging in awake mice, we need to design all behavioral tasks to work while mice are head-fixed under a two-photon microscope.
+In order to allow for two-photon Ca\super{2+} imaging in awake mice, we need to design all behavioral tasks to work while mice are head-fixed under a two-photon microscope (\autoref{fig:intro:techniques:treadmill_schematic}).
+Our primary imaging apparatus most directly combines the work of \citeauthor{Dombeck2010} and \citeauthor{Royer2012}.
+\citeauthor{Dombeck2010} performed the first two-photon Ca\super{2+} imaging experiments of hippocampal area CA1 place fields and their work provided the basis for our viral GECI strategy and surgery procedure \citep{Dombeck2010}.
+\citeauthor{Royer2012} designed a feature-rich head-fixed treadmill for the study of place cells, which was the basis of our original treadmill design \citep{Royer2012}.
 While the core apparatus was in place when I began experiments, extensive upgrades were necessary to optimally run my head-fixed learning tasks.
 I, along with colleagues in the lab, redesigned the wheels, axles, and platform to minimize friction and facilitate running while head-fixed.
 We designed a RFID-tag and quadrature encoded-based system to accurately track position over many laps to within $<$0.5~cm.
@@ -24,15 +31,26 @@ We designed new treadmill belts that consist of multiple fabrics sewed together 
 I added features to our in-house behavioral control software to allow for the presentation
 These hardware changes allowed for the design of new head-fixed behaviors, described below.
 
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\textwidth]{intro/head_fixed_schematic}
+	\caption[Schematic of treadmill design for head-fixed, awake, two-photon Ca\super{2+} imaging]{Schematic of treadmill design for head-fixed, awake, two-photon Ca\super{2+} imaging.
+	Mice are head-fixed underneath the objective a two-photon microscope (\textsc{2-p obj.}) while they run on a fabric belt consisting of multiple materials with local cues dispersed throughout (\textsc{treadmill belt}).
+	Water-deprived mice learn to run for water rewards delivered through a lick port placed in front of them (\textsc{Reward}), which also includes a capacitance sensor to record the timing of each lick (not shown).
+	Throughout the task, mice can experience different contextual modes as changes are made to the background, non-spatially-modulated pure tones (\textsc{tone}), blinking colored LEDs (\textsc{light}), and odors (\textsc{odor}).
+	}
+	\label{fig:intro:techniques:treadmill_schematic}
+\end{figure}
+
 \subsection{Random foraging}
 The first task we designed was a simple random foraging task where mice run to get water, but don't need to learn about any particular location on the belt in order to get water rewards.
 All head-fixed paradigms begin with 1-2 weeks of training where mice learn to lick for water from a lick port while needing to run progressively farther in order to receive another reward (see \autoref{sec:df:methods:training}).
 Mice were either operantly rewarded (they must lick to receive water) at random intervals along the belt or non-operantly at a fixed location.
-This allowed me to look at baseline stability of spatial maps with two-photon Ca\super{2+} imaging over days or weeks (see \autoref{sec:applications:chronic}).
+This allowed me to look at baseline stability of spatial maps with two-photon Ca\super{2+} imaging over days or weeks (see \autoref{sec:df:results:rf} \& \autoref{sec:conclusions:chronic}).
 
 \subsection{Goal-oriented learning}
 \label{sec:intro:techniques:GOL}
-In order to study spatial learning and memory while simultaneously imaging functional activity of hippocampal area CA1 place cells, I developed a head-fixed \ac{GOL} task.
+In order to study spatial learning and memory while simultaneously imaging functional activity of hippocampal area CA1 place cells, Nathan Danielson and I developed a head-fixed \acl{GOL} task which I used to study spatial memory in a mouse model of \scz/ (\autoref{sec:df:methods:GOL}), to study functional diversity within CA1 pyramidal cells (\autoref{sec:other:sf-deep}), and is now being used by many other people in Attila's lab.
 Freely-moving assays of spatial memory in rodents traditionally include the Morris water maze, Barnes maze, or cheese board maze (see \autoref{sec:intro:memory:spatial-reward}).
 While head-fixed under a two-photon microscope, mice are constrained to run in effectively a one-dimensional environment (similar to freely moving linear track paradigms) and there are limited options to experimentally assay choices made by the mice.
 They key features that we were trying to design in the task were:
@@ -43,7 +61,7 @@ They key features that we were trying to design in the task were:
 	\item Be able to flexibly manipulate the reward and environment parameters to probe mice' ability to learn the task.\label{item:into:techniques:GOL:manip}
 \end{enumerate}
 
-Our \ac{GOL} task requires mice to run laps along our multi-fabric, feature-rich circular treadmill belt.
+Our \ac{GOL} task requires mice to run laps along our multi-fabric, feature-rich circular treadmill belt (for task schematic, see \autoref{fig:df:GOL}).
 The mice are water-restricted, so we use water delivered through a lick port as a reward.
 Each lap there is one spatial region (\textsc{reward zone}, usually a 20-cm window) on the belt where the mice can operantly receive water rewards: if they lick they get water, if they do not lick, they don't.
 The reward will `dry up' after after a fixed amount of time has passed since the mouse entered the reward zone that lap (usually 3 seconds).
@@ -75,7 +93,6 @@ I will focus here on the pieces that I personally originated or was the primary 
 	\label{fig:intro:techniques:pipeline}
 \end{figure}
 
-
 \subsection{Initial processing}
 \label{sec:intro:techniques:inital}
 Imaging data acquired through our microscope software (PraireView) is stored as an individual TIFF image file for every frame of every plane and channel.
@@ -104,7 +121,8 @@ This prevents errors in the baseline calculation for any cells that do not have 
 
 \subsection{Place cell identification}
 \label{sec:intro:techniques:pc_id}
-Pyramidal cells in the mammalian hippocampus fire at specific locations within a familiar environment.
+Pyramidal cells in the mammalian hippocampus fire at specific locations within an environment.
+% \todo[color=cyan, bordercolor=green, inline]{Add refs and clarify that it is not just familiar but it is thought to be more stable in familiar environments but they are there early on in novel as well with refs. Jeff: this seems beyond this techniques section. I removed 'familiar' and reference the Frank2004 paper on place fields in novel environments.}
 We developed an algorithm to reliably identify cells that had a significantly higher mutual information between the mouse's position and the Ca\super{2+} activity of the cell than expected by chance.
 The overall goal of our analytical approach is to identify as un-­biased a population of spatially-­tuned cells as possible.
 In particular, we aim to avoid biases in place  field width, number of place fields per cell, location of place fields on the belt, or overall cell activity/firing rate level.
@@ -204,7 +222,7 @@ The first is the more traditional measure, which is the center of mass of transi
 We define the centroid of each place field separately, so we only use transients that occurred within the place fields when calculating the centroid, and then take the centroid of the place field that had the peak transient rate.
 % $$ COM_j = \frac{1}{N}\sum^n_{i=1} m_i r_i,$$
 % where $COM_j$ is the center of mass of the $j^{th}$ place field, $N$ is the number of transients, $m_i$ is the weight of each transient 
-\todo[color=green]{Equations for calculating pf centroid?}
+% \todo[color=green]{Equations for calculating pf centroid?}
 In general, I calculated the centroid shift as the absolute value of the distance between the centroids as a fraction of belt, so all values are on $[0, 0.5]$.
 An alternative version of the centroid shift ignores place fields and instead represents every transient on the unit circle such that the angle is the position on the circular treadmill and the length is inversely related to the occupancy of that position.
 By taking the vector sum of these transient vectors, we can calculate a \textsc{spatial tuning vector}, for each cell for each session (for more details see, \autoref{sec:df:methods:pc_properties}).

@@ -20,3 +20,33 @@ In order to detect Sharp-Wave/Ripple events, the pyramidal layer LFP's were band
 
 Figure legend for Figure 1
 - Context A`, not B
+
+
+
+
+Supp Fig 3 legend:
+- should be S-S, not SS
+- should be D-D, not DD
+
+Supp fig 4 legend:
+- delete = in =<
+
+General:
+- conditions should be Conditions?
+
+Supp fig 5 legend:
+- `cue-free' missing right apostrophe
+
+General comment
+- should be "sharp wave-ripple" not "sharp-wave ripple"
+
+Df model figure legend:
+- "as in 7a", should be 6b
+- "as in 7b", should be 6c
+- "see Fig. 8b", should be 7b
+
+Sup fig 2 legend:
+- df+, without a -, panel f
+
+Fig 1d legend:
+- "Conditions II", should be "Condition II"

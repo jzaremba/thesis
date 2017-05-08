@@ -10,20 +10,17 @@ The study of memory in the brain spans from the level of molecular changes that 
 
 In the following sections I aim to describe an understanding of memory, the brain structures underlying it, and cellular physiological correlates of learning relevant to my later studies.
 In discussing learning and memory, I will first focus on spatial memory as a core component of episodic memory (\ref{sec:intro:memory:memory}) and how we experimentally study it.
+\todo{Attila highlighted above sentence, not sure why?}
 While learning-related changes are fundamental to every neuron in the nervous system, I will primarily focus on the role of the \ac{HPC} in learning and memory, as the \ac{HPC} is most relevant to the memory systems I will be studying (\ref{sec:intro:memory:structure}).
 Finally, I will discuss our current understanding of cellular and circuit mechanisms by which the brain encodes and recalls memory, with a specific emphasis on hippocampal place cells underlying spatial memory (\ref{sec:intro:memory:physiology}).
 
-\section{Memory}\label{sec:intro:memory:memory}
+\section{Memory}
+\label{sec:intro:memory:memory}
 Memory is the way in which experiences from the past can influence how we interpret the present (or the future).
 Memory includes both explicit memories of objects, concepts, people, places, and events (\textsc{declarative memory}), but also skills and abilities that we cannot consciously recall, such as the ability to shoot a basketball or ride a bike (\textsc{implicit memory}).
 % Forms of implicit memory are evolutionarily ancient, present in the earliest invertebrates \citep{Milner1998}.
 Declarative memory can be subdivided into at least two categories: autobiographical episodic memory of events and semantic memory, which is the general knowledge of facts.
 As Endel Tulving explained when he defined \textsc{episodic memory}, these two memory systems are not entirely independent:
-
-% Episodic memory is 
-% Episodic memory \citep{Tulving1972}
-% Ebbinghaus H (1885). Über das Gedachtnis, Dunker & Humbolt.
-% https://books.google.com/books?id=kfA0AAAAMAAJ&ots=hjMhksDE3X&dq=Ebbinghaus%20H%20(1885).%20%C3%9Cber%20das%20Gedachtnis%2C&lr&pg=PA1#v=onepage&q&f=false
 
 \begin{quote}
 Episodic memory retrieves and stores information about temporally dated episodes or events, and temporal-spatial relations among these events. A perceptual event can be stored in the episodic system solely in terms of its perceptible properties or attributes, and it is always stored in terms of its autobiographical reference to the already existing contents of the episodic memory store. The act of retrieval of information from the episodic memory store, in addition to making the retrieved contents accessible to inspection, also serves as a special type input into episodic memory and thus changes the contents of the episodic memory store. The system is probably quite susceptible to transformation and loss of information. While the specific form in which perceptual input is registered into the episodic memory can at times be strongly influenced by information in semantic memory -- we refer to the phenomenon as encoding -- it is also possible for the episodic system to operate relatively independently of the semantic system.
@@ -33,7 +30,7 @@ Episodic memory retrieves and stores information about temporally dated episodes
 This interpretation of episodic memory encapsulates several key points that I will address going forward.
 The time and space at which an event occurred are essential components of the memory they are the relationship framework that we use to categorize events in memory (\autoref{sec:intro:memory:spatial-episodic}).
 Also, episodic memory is in effect an association of sensory inputs with previously stored memories.
-Perhaps the best-studied example of this are hippocampal \textsc{place cells}, which combine external sensory features with an internal interpretation of the world to selectively identify particular locations (\autoref{sec:intro:memory:spatial_maps}).
+Perhaps the best-studied example of this are hippocampal \textsc{place cells} \citep{O'Keefe1971}, which combine external sensory features with an internal interpretation of the world to selectively identify particular locations (\autoref{sec:intro:memory:spatial_maps}).
 Finally, episodic memory is inevitably malleable.
 The degree of stability depends on many factors and is an inherent limit on the ability of the brain to recall memories (\autoref{sec:intro:memory:stability}).
 
@@ -57,16 +54,27 @@ My main thesis project investigated spatial-reward memory to inform on episodic 
 % Fortin NJ, Wright SP, Eichenbaum H (2004): Recollection-like memory retrieval in rats is dependent on the hippocampus. Nature 431:188– 191.
 % Sauvage MM, Fortin NJ, Owens CB, Yonelinas AP, Eichenbaum H (2008): Recognition memory: Opposite effects of hippocampal dam- age on recollection and familiarity. Nat Neurosci 11:16–18.
 
-\subsection{Spatial memory}\label{sec:intro:memory:spatial}
+\subsection{Spatial memory}
+\label{sec:intro:memory:spatial}
 \textsc{Spatial memory} is the aspect of our memory that instills our sense of direction and allows us to know where we are at any given time (our personal `GPS'), imagine or plan where we will be in the future, and know where we were when we recall particular memories.
 We use spatial memory to navigate our world.
 Spatial navigation consists of two primary components: location relative to an allocentric map of the world, and egocentric update cues arising from orientation and other vestibular input.
+\todo[color=cyan]{refs}
 The dominance of allocentric or egocentric navigation depends upon the precise nature of the environment being explored; egocentric dominates in cue-rich environments, while allocentric navigation dominates when landmarks are lacking or in the dark \citep{Knierim1998, Markus1994}.
-
 Spatial memory has been studied extensively in rodents, in large part because it a well-defined and tractable area of research.
-As rodents can not be asked to recall past events, we need assays that can probe for evidence of these memories (\nameref{sec:intro:memory:spatial-reward}).
-Not only do we have good behavioral tests for spatial memory in rodents, but we have identified the cognitive map of the memory itself (\nameref{sec:intro:memory:spatial_maps}).
+As rodents can not be asked to recall past events, we need assays that can probe for evidence of these memories (\autoref{sec:intro:memory:spatial-reward}).
+Not only do we have good behavioral tests for spatial memory in rodents, but we have identified the cognitive map of the memory itself (\autoref{sec:intro:memory:spatial_maps}).
 % Allocentric navigation in particular is \ac{HPC}-dependent \citep{OKeefe1978, Smith1989}, not egocentric.
+
+There are two cognitively distinct forms of spatial memory: \textsc{spatial working memory} and \textsc{spatial reference memory}.
+Spatial working memory is the short-term, on-line processing of spatial information and requires both the \ac{HPC} to provide spatial maps \citep{Morris1982} as well as the \ac{PFC} to maintain these representation in working memory \citep{XXXX, Olton1979}.
+% Olton lesions fornix and showd deficits in spatial working memory but not reference memory.
+Spatial reference memory refers to the long-term storage of spatial maps of environments and is the basis of spatial navigation.
+These two forms of spatial memory are dissociable by the brain regions involved, but also by the underlying hippocampal synaptic and circuit mechanisms.
+Spatial working memory is selectively impaired, while spatial reference memory is spared, by disruption in synaptic machinery resulting in decreased Schaffer collateral-CA1 LTD \citep{Zeng2001} and by inactivating hippocampal area CA1 parvalbumin-positive interneurons \citep{Murray2011}.
+In particular the direct \ac{HPC} to \ac{PFC} projection is essential during the initial encoding phase in spatial memory tasks, but not during the later maintenance or retrieval \citep{Spellman2015}.
+\todo[color=yellow]{cleanup}
+
 
 \subsubsection{Spatial memory as episodic memory}
 \label{sec:intro:memory:spatial-episodic}
@@ -94,6 +102,7 @@ More recently, virtual reality variations of the Morris water maze have been dev
 Virtual reality water mazes have been to study spatial memory in \scz/ patients, which I will discuss later (\autoref{sec:intro:scz:spatial}).
 
 One particular variation is the annular water maze used by \citeauthor{Hollup2001a}, which adds an inner wall to the large circular pool creating a `one-dimensional' circular track that the mice swim around.
+\todo[color=cyan, inline]{define annular water maze? Jeff: not exactly sure what in particular needs to be defined}
 This task is similar to the \ac{GOL} task (\autoref{sec:intro:techniques:GOL}) that I use throughout my primary experiments; both tasks require rodents to find hidden rewards in a simplified `one-dimensional' environment while recording from hippocampal area CA1 pyramidal cells and quantify both the task performance and place cell enrichment of the reward location.
 In particular, the authors find an accumulation of place cells around the escape platform (\autoref{fig:intro:memory:hollup}), a finding which I replicate and expand upon in my \ac{GOL} task (\autoref{sec:df:results:enrichment}). 
 \begin{figure}
@@ -131,7 +140,7 @@ In my own experiments, we found dysfunctional SWR activity in mice that performe
 
 \section{Memory in the brain}
 \label{sec:intro:memory:structure}
-The earliest behaviorist approaches to studying memory focused solely on the behavioral responses elicited by sensory inputs -- ignoring the `black box' that was the brain at the time. \todo[color=green]{behaviorist reference?}
+The earliest behaviorist approaches to studying memory focused solely on the behavioral responses elicited by sensory inputs -- ignoring the `black box' that the brain was at the time \citep{Watson1913}.
 Since then, it is now, perhaps obviously, recognized that behavioral responses intimately depend upon the organ that drives the response -- the brain.
 The degree to which memory, and more generally cognitive functions, are localized within the brain has been widely debated.
 In the late 1800's Pierre Paul Broca and Carl Wernicke identified patients with specific speech deficits related to the production and comprehension of language respectively.
@@ -140,12 +149,13 @@ In contrast, work by Karl Lashley in the early 20\super{th} century showed that 
 Donald Hebb was one of the first to bring these two theories together, suggesting that networks of neurons could span many brain regions and collectively store memories \citep{Hebb1949}.
 While circuits that perform many cognitive functions span the entire brain, there are also clearly cognitive functions that are localized to specific regions.
 % While `memory' in it's broadest sense is a fundamental feature of every neuron, in mammals certain memory sub-types have been closely associated to specific brain regions.
-For example, implicit \textsc{procedural memory} (\todo[color=green]{procedural memory example}) is largely localized to the \textsc{striatum} and \textsc{cerebellum} \todo[color=green]{procedural memory reference}, while \textsc{emotional memory}, such as fear, is largely attributed to the \textsc{amygdala} \citep{LeDoux2000}.
+For example, implicit \textsc{procedural memory} (e.x. driving a car) is largely localized to the \textsc{striatum} and \textsc{cerebellum} \citep{Knowlton1996, Gerwig2007, Eichenbaum2000}, while \textsc{emotional memory} (e.x. learned aversion) is largely attributed to the \textsc{amygdala} \citep{LeDoux2000}.
 The \textsc{neocortex} is important for \textsc{working memory}, \textsc{priming} effects, and eventually the long-term storage of \textsc{declarative memory}.
 While declarative memory may eventually be store in the cortex, the \ac{HPC} is central to the process of consolidating declarative memories of experiences, and building association networks, such as in the case of spatial maps \citep{Eichenbaum2000}.
 My primary research focus revolved around hippocampal-dependent spatial memory, so with no desire to minimize the important role of the rest of the brain in memory, I will focus on the \ac{HPC} for the remainder of this section. 
 
-\subsection{The Hippocampus}\label{sec:intro:memory:hpc}
+\subsection{The Hippocampus}
+\label{sec:intro:memory:hpc}
 The \ac{HPC} has been central to our study of memory at least since Scoville and Milner first reported in the 1950's on Henry Molaison (H.M.) who had profound anterograde amnesia following the bilateral removal of large portions of the medial temporal lobes, which includes the \ac{HPC} and parahippocampal structures \citep{Scoville1957}.
 The most dramatic feature of H.M.'s memory loss was the inability to form new episodic memories, as he described it:
 \begin{quote}
@@ -157,40 +167,24 @@ Despite H.M.'s near complete inability to form new memories, he still maintained
 Additional studies of H.M. over the next 50 years revealed that while declarative memory deficits remained severely impaired, various forms of implicit memory remained unaffected \citep{Corkin2002}.
 For example, patient H.M. was able to show day-to-day improvements in a mirror-tracing motor-learning task, despite no explicit memory of ever having performed the task before.
 In addition, he showed normal word-list priming effects -- whereby words stems are preferentially completed by words semantically similar to recently viewed words. 
-While the specific brain areas resectioned in the case of H.M. included structures adjacent to the \ac{HPC} as well (such as the amygdala), numerous studies have since shown that the \ac{HPC} in particular is essential for normal formation of long term episodic and semantic memory \citep[reviewd in][]{Eichenbaum2000, Burgess2002}.
+While the specific brain areas resectioned in the case of H.M. included structures adjacent to the \ac{HPC} as well (such as the amygdala), numerous studies have since shown that the \ac{HPC} in particular is essential for normal formation of long term episodic and semantic memory \citep[reviewed in][]{Eichenbaum2000, Burgess2002}.
 \todo[color=green]{General comment to check HPC subfield abbreviations}
 
-Computational models of the hippocampus have long posited that the \ac{EC}-\ac{DG}-CA3 circuit was well positioned anatomically to perform pattern separator/completion computations \citep{Marr1971}.
-The \ac{EC} to \ac{DG} connection is highly divergent, with 5 times as many \ac{DG} granule cells as \ac{EC} input cells \cite{Amaral1990}.
-In addition, \ac{DG} granule cells are under heavy inhibitory control, as their very sparse activity has made them difficult to record from \emph{in vivo} and their activity seems to readily remap to context manipulations \citep{Neunuebel2014, Leutgeb2007}, perhaps the most direct measure of input decorrelation or \textsc{pattern separation}.
-Hippocampal area CA3 in comparison is most notably characterized by its dense recurrent connections between pyramidal cells.
-These connection make the region much more excitable -- and epileptic -- and are thought to form a Hebbian autoassociation network that allows for the network to recall entire memories from partial cues (\textsc{pattern completion}).
-Finally, the CA1 output node of the hippocampus has been suggested to play a role in novelty detection as a \textsc{comparator}, as it has access to both the internal \ac{HPC} processed information from CA3 Schaffer collaterals as well as a strong direct excitation from the \ac{EC}.
-Alternatively, CA1 also receives neuromodulatory inputs and non-spatial, contextual inputs from LEC, and might provide the conjunctive spatial-contextual-salience output from the \ac{HPC}. 
-Finally, area CA2 has been historically understudied, but recent work has elucidated an important role for CA2 in social memory \citep{Hitti2014}.
-
-\subsubsection{Pyramidal cell functional diversity}
-Principal cells in the \ac{HPC} are not an homogeneous population of identical units.
-Indeed, their genetic makeup, connectivity, and functional properties vary particularly along the major axes of the \ac{HPC}; the longitudinal \citep{Strange2014}, transverse \citep{Igarashi2014}, and radial \citep{Slomianka2011}.
-In particular, the longitudinal dorsal-ventral axis has generally been used to divide the \ac{HPC} into dorsal hippocampus (dHPC) and ventral hippocampus (vHPC), with the domain of spatial memory and navigation associated with dHPC and emotion/anxiety associated with vHPC \citep{Strange2014}.
-This gross division is an oversimplification, as finer connectivity gradients exist along the dorsal-ventral axis and genetic profiling of the pyramidal cell population along the dorsal-ventral axis suggests more than two clusters.
-In addition, recent work has expanded the proposed role of vHPC to include social memory as well \citep{Okuyama2016}.
-Subdivisions along the radial axis are becoming better appreciated.
-Deep pyramidal cells are larger, express \emph{Vipr2} and \emph{Sox5}, preferentially receive inputs from the septum and ventral striatum, and show more burst firing, spatial information, and consist of a higher fraction of place cells \citep{XXX}.
-In contrast, superficial pyramidal cells are smaller, and express \emph{Calbindin-28k}, \emph{Zbtb20}, and \emph{Satb2}.
-As part of my extended projects, I worked with colleagues to further characterize the functional properties of pyramidal cells along the radial axis: \autoref{sec:other:sf-deep}.
-\todo[color=yellow]{Expand on CA1PC subdivisions}
-
 \subsubsection{Circuitry}
+The \ac{HPC} consists of the Ammons horn (Cornu Ammonis; CA), which is the hippocampus proper, plus \ac{DG}, \ac{EC}, subiculum, presubiculum, and parasubiculum.
+The CA regions contains three sequential subregions,spanning from the subiculum to the \ac{DG}; CA1, CA2, and CA3 \citep{deNo1934}.
 The connectivity of the \ac{HPC} is one of the most well-characterized neuronal circuits within the mammalian brain.
-Perhaps reflective of it's fundamental role in memory processing, hippocampal-circuitry is also remarkably conserved across mamals \citep{Manns2006}.
-The principal neurons in the \ac{HPC} communicate through the classically-defined trisynaptic loop: perforant path fibers project from layer II of the entorhinal cortex (EC) to granule cells in the dentate gyrus, which in turn send mossy fiber projections to CA3 that finally project along the Schaffer collateral pathway and synapse upon proximal apical and basal dendrites of CA1 pyramidal cells (CA1PCs), which are the primary output node of the \ac{HPC}.
-Among other projections to both cortical and subcortical structures, CA1PCs also send a projection back to deep layers of the EC, completing the hippocampal loop.
-In addition, layer II of EC sends a direct perforant path projection to CA3 and layer III sends a direct projection through the temporoammonic pathway to distal dendrites of CA1.
-CA2 receives direct inputs from CA3 and layer II neurons from lateral and medial \ac{EC}, and in turn send projections only within the hippocampus, to CA3 and CA1 \citep{Hitti2014}. 
-Large excitatory cells within the hilus (\textsc{mossy cells}) receive excitation from dentate gyrus granule cells and provide both direct feedback excitation and indirect feedback inhibition to granule cells (\autoref{fig:intro:memory:HPC_circuitry}).
-There is also a long-range inhibitory projection (LRIP) from both medial and lateral entorhinal cortex that targets inhibitory interneurons -- which in turn target CA1PC tuft dendrites -- near the SR-SLM border in CA1, conveying spatial and contextual information respectively \citep{Basu2016}.
+Perhaps reflective of it's fundamental role in memory processing, hippocampal-circuitry is also remarkably conserved across mammals \citep{Manns2006}.
+The principal neurons in the \ac{HPC} communicate through the classically-defined trisynaptic loop: perforant path fibers project from layer II of the \ac{EC} to granule cells in the \ac{DG}, which in turn send mossy fiber projections to CA3 that finally project along the Schaffer collateral pathway and synapse upon proximal apical and basal dendrites of CA1 pyramidal cells (CA1PCs), which are the primary output node of the \ac{HPC}.
+Among other projections to both cortical and subcortical structures, CA1PCs also send a projection back to deep layers of the \ac{EC}, completing the hippocampal loop.
+In addition, layer II of \ac{EC} sends a direct perforant path projection to CA3 and layer III sends a direct projection through the temporoammonic pathway to distal dendrites of CA1.
+CA2 receives direct inputs from CA3 and layer II neurons from lateral and medial \ac{EC}, and in turn send projections only within the \ac{HPC}, to CA3 and CA1 \citep{Hitti2014}. 
+Large excitatory cells within the hilus (\textsc{mossy cells}) receive excitation from \ac{DG} granule cells and provide both direct feedback excitation and indirect feedback inhibition to granule cells (\autoref{fig:intro:memory:HPC_circuitry}).
+There are also reciprocal long-range inhibitory projections (LRIPs) between the \ac{EC} and CA1 that specifically target GABAergic interneurons \citep{Melzer2012, Basu2016}.
+% There are also long-range inhibitory projections (LRIP) from both medial and lateral \ac{EC} that targets inhibitory interneurons -- which in turn target CA1PC tuft dendrites -- near the \emph{stratum radiatum-stratum lacunosum moleculare} border in CA1 \citep{Basu2016}.
 In \autoref{sec:other:LRIP}, I will discuss work I did characterizing the functional properties of the LRIP from LEC to CA1. 
+% \todo[color=cyan, inline]{Brief overview of the hippocampal trisynaptic circuit. Hippocampal memory and navigation-related operations are thought to emanate from the trisynaptic circuitry residing in the hippocampus proper. SPELL OUT THE TRISYNAPTIC CIRCUTRY. "The hippocampal formation is comprised of the hippocampus proper or Ammon’s horn (Cornu Ammonis; CA), as well as the \ac{DG}, \ac{EC}, parasubiculum, presubiculum and the subiculum. The hippocampus proper contains three discrete regions, designated CA1-3, stretching from subiculum to the \ac{DG}; the so-called CA4 area of Lorente de No (Ref) is now considered to be part of the \ac{DG} and called the hilus, and not regarded as a continuation of the PC layer. In the rat, the hippocampus contains approximately 311,500 CA1 and 204,700 CA3 PCs (Bezaire and Soltesz, 2013). The CA2 is a distinct, small region that is wedged between the CA3 and CA1 areas, with properties that in some but not all aspects resemble the part of the CA3 region immediately adjacent to it (Refs). The \ac{EC} provides the major excitatory input to the hippocampus, either to the \ac{DG} and the CA3 or to the CA1 and subiculum. The information flow carried by the excitatory connections between principal cells through the circuit of the hippocampal formation is primarily unidirectional, from the \ac{DG} to the CA3 and CA2, then to the CA1, subiculum and back to the entorhinal cortex."}
+% \todo[color=cyan, inline]{LEC-MEC dual flow of information -- Knierim and Eichenbaum should be spelled out. Correct wording in the relevant section}
 % Stellate Ocean cells in ECII project to the DG, CA3, and CA2 region, whereas ECIII cells directly project to the CA1 region. % Entorhinal–hippocampal neuronal circuits bridge temporally discontiguous events, Tonegawa
 
 % \begin{figure}
@@ -205,20 +199,92 @@ In \autoref{sec:other:LRIP}, I will discuss work I did characterizing the functi
 	\includegraphics[width=0.7\textwidth]{intro/Deng2010_HPC_circuitry}
 	\caption[The neural circuitry in the rodent hippocampus]{The neural circuitry in the rodent hippocampus.
 	(a) An illustration of the hippocampal circuitry.
-	(b) Diagram of the hippocampal neural network. The traditional excitatory trisynaptic pathway (entorhinal cortex (EC)--dentate gyrus--CA3--CA1--EC) is depicted by solid arrows. The axons of layer II neurons in the entorhinal cortex project to the dentate gyrus through the perforant pathway (PP), including the lateral perforant pathway (LPP) and medial perforant pathway (MPP). The dentate gyrus sends projections to the pyramidal cells in CA3 through mossy fibers. CA3 pyramidal neurons relay the information to CA1 pyramidal neurons through Schaffer collaterals. CA1 pyramidal neurons send back-projections into deep-layer neurons of the EC. CA3 also receives direct projections from EC layer II neurons through the PP. CA1 receives direct input from EC layer III neurons through the temporoammonic pathway (TA). The dentate granule cells also project to the mossy cells in the hilus and hilar interneurons, which send excitatory and inhibitory projections, respectively, back to the granule cells. 
+	(b) Diagram of the hippocampal neural network. The traditional excitatory trisynaptic pathway (\ac{EC}--\ac{DG}--CA3--CA1--EC) is depicted by solid arrows. The axons of layer II neurons in the \ac{EC} project to the \ac{DG} through the perforant pathway (PP), including the lateral perforant pathway (LPP) and medial perforant pathway (MPP). The \ac{DG} sends projections to the pyramidal cells in CA3 through mossy fibers. CA3 pyramidal neurons relay the information to CA1 pyramidal neurons through Schaffer collaterals. CA1 pyramidal neurons send back-projections into deep-layer neurons of the EC. CA3 also receives direct projections from EC layer II neurons through the PP. CA1 receives direct input from EC layer III neurons through the temporoammonic pathway (TA). The dentate granule cells also project to the mossy cells in the hilus and hilar interneurons, which send excitatory and inhibitory projections, respectively, back to the granule cells. 
 	Reproduced from \citet{Deng2010}.}
 	\label{fig:intro:memory:HPC_circuitry}
 \end{figure}
 
 Finally, the \ac{HPC} is also targeted by afferents from neuromodulatory nuclei, including cholinergic and GABAergic projections from the medial septum  \citep{Klausberger2008}, serotonergic and glutamatergic projections from the raphe nuclei \citep{Varga2009}, as well as dopaminergic and noradrenergic projections from the ventral tegmental area \citep{Gasbarri1997} and locus coeruleus \citep{Foote1983}.
-\todo[inline, color=yellow]{local IN in HPC}
 
+\subsubsection{Local interneurons}
+\label{sec:intro:memory:INs}
+The \ac{HPC} consists not only of a dense pyramidal cell layer or excitatory principal cells, but also diverse populations of local GABAergic \ac{INs} which control pyramidal cell spiking \citep{Freund1996}.
+Classifications of \ac{INs} are generally determined by their unique neurochemical markers, morphological structure, location of the soma within the lamina of the \ac{HPC}, afferent connectivity, and target of inhibition.
+Within area CA1 for example, at least 21 GABAergic interneuron subtypes have been identified \citep{Klausberger2008}.
+These can be broadly segregated into three functional categories based on their target: pyramidal cell \textsc{dendrite-targeting}, pyramidal cell \textsc{soma-targeting}, and \textsc{interneuron-targeting}.
+The two main classes of pyramidal cell-targeting \ac{INs} -- dendrite-targeting (e.g. somatostatin-positive; SST+) and soma-targeting (e.g. parvalbumin-positive: PV+) interneurons -- are uniquely situated to control different aspects of pyramidal cell activity.
+Dendrite-targeting \ac{INs} can directly gate dendritic integration of inputs and have been shown to directly modulate pyramidal cell burst spiking \citep{Royer2012}.
+Hippocampal-dendritic inhibition has also been implicated in efficient formation of contextual fear memories, work which I contributed to, but will not be discussing further \citep{Lovett-Barron2014}.
+Soma-targeting \ac{INs} tightly control the output of hippocampal pyramidal cells, modulate theta-phase activity, and are robustly affected by behavioral state \citep{Klausberger2008, Lovett-Barron2012, Klausberger2003}.
+Interneuron-targeting \ac{INs} generally express calretinin (CR) or vasointestinal peptide (VIP) and are located throughout the lamina of the \ac{HPC} \citep{Chamberland2012}
+Relatively less is known about their functional activity \emph{in vivo}, but their connectivity provides a dysnaptic disinhibitory drive to hippocampal pyramidal cells.
+Local inhibition within the \ac{HPC} is essential for the normal control of network activity and the disruption of hippocampal GABAergic \ac{INs} has been linked to multiple psychological disorders \citep[reviewed in,][]{Marin2012}, including \scz/ which I will discuss later (\autoref{sec:intro:scz:glutamate}).
+% \todo[inline, color=cyan]{Include a section about GABAERGIC INs (perisomaic, dendrtic, disinhibitory) Somogyi Klausberger, Freund Buzsaki,}
+
+\subsection{Functional organization of the hippocampus}
+As described above (\autoref{sec:intro:memory:hpc}), the \ac{HPC} is fundamental to our understanding of how the brain processes spatial and episodic memory, but it also plays an important role in emotion and anxiety-related behaviors \citep{Fanselow2010}.
+The \ac{HPC} is essential in modulating the hypothalamic-pituitary-adrenal axis, as \ac{HPC} impair the hormonal stress response \citep{Jacobson1991} and psychiatric disorders such as depression, posttraumatic stress disorder, and bipolar disorder, are associated with reduced \ac{HPC} volume \citep{Fanselow2010}.
+These two cognitively distinct functions have been shown to segregate along the dorsal-ventral axis of the \ac{HPC}: \ac{dHPC} is associated with spatial and episodic memory and \ac{vHPC} with emotion, anxiety-related behaviors, social interaction, and fear \citep{Moser1998, Fanselow2010, Strange2014}.
+Supporting this dissociation, lesions of \ac{dHPC}, but not \ac{vHPC}, impair performance in a Morris water maze test of spatial memory \citep{Moser1995} and taxi drivers recalling routes through a city show \ac{fMRI} activation of posterior \ac{HPC}, which corresponds to \ac{dHPC} in rodents \citep{Maguire1997}.
+In contrast, lesions of \ac{vHPC} in rodents reduced innate fear responses as seen by increased time spent in the exposed arms of an elevated plus maze and affected the degree of social interaction \citep{Fanselow2010, Strange2014}.
+More recently, \ac{vHPC} neurons have been shown to be active in social interaction experiments and reactivation of specific subsets showed memory retrieval and could be paired to an unconditioned stimulus \citep{Okuyama2016}.
+
+In addition, the dorsal-ventral axis of the \ac{HPC} also correlates with gradients of both afferent and efferent connections.
+Projections to the \ac{HPC}-proper from the \ac{EC} generally follow a mapping of the dorsal-ventral axis of the \ac{EC} to the dorsal-ventral axis of the \ac{HPC} \citep{Strange2014}.
+Additionally, the return projections from area CA1 back to the \ac{HPC} follow the same mapping.
+This spatial-segregation of projections also applies to the upstream cortical projections to \ac{EC} which target specific dorsal-ventral locations such that brain regions more involved in spatial processing (such as the retrosplenial cortex) project to more dorsal \ac{EC} and regions more associated with emotion (such as the infralimbic cortex) project to more ventral \ac{EC} \citep{Strange2014}.
+Output projections from area CA1 follow a similar pattern.
+Dorsal \ac{HPC} preferentially projects to regions involved in navigation, such as the retrosplinial and anterior cingulate cortices, while uniquely-\ac{vHPC} projections target the olfactory bulb (which has been linked to depression),the amygdala, and the nucleus accumbens \citep{Moser1998, Fanselow2010, Strange2014}.
+The brain anatomical connectivity listed above are examples of differential connectivity and certainly not an exhaustive list, but they do highlight the underlying anatomy that gives rise to the episodic memory-emotion dichotomy within the \ac{HPC}.
+% \todo[color=cyan]{REF: Chembrowski, Thompson papers}
+
+\subsubsection{Pyramidal cell functional diversity}
+\label{sec:into:memory:diversity}
+% \todo[inline, color=cyan]{This is a bit out of the blue here. Again, it would be better if you had already introduced the general circuitry and which pyramidal cells you talk about here. In general, this section needs MORE work. You can start (and maybe name the chapter) of functional organization of the hippocampus; dorsal=spatial ventral=emotional, anxiety, fear, social, etc. AND THEN introduce the concept of heterogeneity along these axes.}
+Beyond the overall organization along the dorsal-ventral axis of the \ac{HPC}, principal cells in the \ac{HPC} vary in their genetic makeup, connectivity, and functional properties along the the transverse \citep{Igarashi2014} and radial \citep{Slomianka2011} axes as well.
+Subdivisions along the radial axis are becoming better appreciated.
+Deep pyramidal cells are larger, express \emph{Vipr2} and \emph{Sox5}, preferentially receive inputs from the septum and ventral striatum, and show more burst firing, spatial information, and consist of a higher fraction of place cells \citep{XXX}.
+\todo[color=cyan]{REFS -- Mizuseki, etc.}
+In contrast, superficial pyramidal cells are smaller, and express \emph{Calbindin-28k}, \emph{Zbtb20}, and \emph{Satb2}.
+As part of my extended projects, I worked with colleagues to further characterize \emph{in vivo} functional properties and learning-related \emph{in vivo} dynamics of pyramidal cells along the radial axis: \autoref{sec:other:sf-deep}.
+\todo[color=cyan]{Expand on CA1PC subdivisions/heterogeneity}
+
+\subsubsection{Hippocampal computations}
+\label{sec:intro:memory:hpc_comp}
+Computational models of the \ac{HPC} have long posited that the \ac{EC}-\ac{DG}-CA3 circuit was well positioned anatomically to perform pattern separator/completion computations \citep{Marr1971, Treves1994, Knierim2016}.
+The \ac{EC} to \ac{DG} connection is highly divergent, with 5 times as many \ac{DG} granule cells as \ac{EC} input cells \cite{Amaral1990}.
+In addition, \ac{DG} granule cells are under heavy inhibitory control, as their very sparse activity has made them difficult to record from \emph{in vivo} and their activity seems to readily remap to context manipulations \citep{Neunuebel2014, Leutgeb2007}, perhaps the most direct measure of input decorrelation or \textsc{pattern separation} (\autoref{fig:intro:memory:subfield_IO}a).
+Hippocampal area CA3 in comparison is most notably characterized by its dense recurrent connections between pyramidal cells which inspired the proposal of CA3 as a Hebbian autoassociation network \citep{Marr1971}.
+Area CA3 receives excitatory inputs from both the strong `detonator' synapses of \ac{DG} granule cell Mossy fibers as well as perforant path inputs from the \ac{EC}.
+These connection make the region much more excitable and are thought to perform \textsc{pattern completion} (\autoref{fig:intro:memory:subfield_IO}b) by establishing attractor network dynamics that allows for the network to recall entire memories from partial cues \citep{Treves1992, Neunuebel2014}.
+Finally, the CA1 output node of the hippocampus has been suggested to play a role in novelty detection as a \textsc{comparator} \citep{Vinogradova2001, Lisman2001}, as it has access to both the internal \ac{HPC} processed information from CA3 Schaffer collaterals as well as direct perforant path excitation from the \ac{EC} (\autoref{fig:intro:memory:subfield_IO}c).
+While the role of area CA2 has been historically understudied, recent work has elucidated an important role for CA2 in social memory \citep{Hitti2014}, aggression \citep{Wersinger2002}, and time coding \citep{Mankin2015}.
+
+In addition to specialized functions for hippocampal subfields, specific input streams to the \ac{HPC} also serve distinct roles.
+In particular, the perforant path inputs to CA1 include both \ac{MEC} and \ac{LEC} projections which convey two distinct streams of information.
+The \ac{MEC} projection is the primary spatial input to CA1 and conveys the `where' of an episodic memory.
+In contrast, \ac{LEC} projections convey non-spatial, contextual and sensory information that contributes the `what' components of episodic memory \citep{Hargreaves2005, Dickerson2010, Eichenbaum2012}.
+These two distinct input streams of spatial and non-spatial information also unequally project to CA1PC subpopulations (\autoref{sec:intro:memory:diversity}), with \ac{MEC} preferentially targeting proximal and deep CA1PCS, while \ac{LEC} preferentially projects to distal and superficial CA1PCS \citep{Masurkar2017}.
+These inputs streams are not completely spatially separated, as within place cell populations differences in locations are encoded through global remapping and differences in context are encoded through rate remapping (see \autoref{sec:intro:memory:remapping}, \citet{Leutgeb2005a}).
+In agreement with this interpretation, the context-specific change in the active population of cells was impaired by lesions of \ac{LEC}\citep{Lu2013}.
+Characterizing the \emph{in vivo} activity of the inhibitory component of the \ac{LEC} projection to CA1 was part of my work with Jayeeta Basu that I will discuss briefly later (\autoref{sec:other:LRIP}).
+% In addition, CA1 also receives neuromodulatory inputs and non-spatial, contextual inputs from LEC, and might provide the conjunctive spatial-contextual-salience output from the \ac{HPC}.
+% \todo[color=cyan]{Alternatively is not the best here. `In addition' is good for the neuromodulatory inputs. BUT you need to be precise here about MEC and LEC: you have to introduce this in more precisely and more detail, what type of information they are thought to carry -- See Eichenbaum and Knierim reviews on "dual stream of information flow" (spatial non-spatial). Also FYI, Masurkar paper from Steve's lab} 
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{intro/Knierim2016_subfield_IO_curves}
+	\caption[Hypothesized input-output curves for the DG, CA3, and CA1 regions of the hippocampus]{Hypothesized input-output curves for the DG, CA3, and CA1 regions of the hippocampus. The $x$-axis of each graph denotes the difference between the neural activity representations of two specific input patterns. The $y$-axis represents the difference between the corresponding output patterns.
+	(A) The DG is hypothesized to change its output patterns to a greater extent than the input patterns change (pattern separation).
+	(B) CA3 is hypothesized to show a sigmoidal relationship between $\Delta$input and $\Delta$output, performing pattern completion with small $\Delta$input and pattern separation with large $\Delta$input.
+	(C) CA1 is hypothesized to display a linear relationship between $\Delta$input and $\Delta$output.
+	Reproduced from \citet{Knierim2016}.}
+	\label{fig:intro:memory:subfield_IO}
+\end{figure}
 
 % Burwell RD (2000): The parahippocampal region: Corticocortical connectivity. Ann N Y Acad Sci 911:25–42.
 % \subsubsection{CA1}
 % Pyramidal cells in hippocampal area CA1 are the principal excitatory neuron in that region and the primary output from the \ac{HPC}.
-% \todo[inline, color=red]{discuss CA1}
-% \todo[inline, color=yellow]{diversity in CA1PCs}
 % \begin{figure}
 % 	\centering
 % 	\includegraphics[width=0.5\textwidth]{intro/CA1-schematic_INs_VTA_MS}
@@ -226,35 +292,38 @@ Finally, the \ac{HPC} is also targeted by afferents from neuromodulatory nuclei,
 % 	\label{fig:intro:memory:CA1_schematic}
 % \end{figure}
 
-
-% \subsection{Other}
-% In discussing the role of the \ac{HPC}, I've focused on spatial memory, but this is clearly not the sole role of the \ac{HPC}.
-% \todo[inline, color=yellow]{environment/context coding}
-
 \subsection{Memory at the synapse}
-\todo[inline, color=red]{NMDAR/LTP, Tonegawa NMDAR KO mouse}
+\todo[inline, color=cyan]{NMDAR/LTP, Tonegawa NMDAR KO mouse}
+\todo[inline, color=cyan]{INCOMPLETE  -- LTP and LTD should be all here from Bliss Lomo to date. This should be substantially expanded upon! 1) Section about LTP as a substrate of learning is critical. This should also encompass deficits of hippocampal learning, in particular spatial learning following NMDA KO (Nakazawa\&Tonegawa papers, 2002 Science, 2003 Neuron, review, Morris papers e.g. NMDA receptors and memory encoding, 2013) and CA3 and EC pathway manipulations  (Brun Sceince 2002)}
 \citep{Tsien1996, McHugh1996, Dragoi2013}\citep[reviewed in,][]{Nakazawa2004}
 late-phase of LTP in CA1 depends on D1/D5 receptor antagonists \citep{Huang1995}.
 Long-term stability of spatial maps is impaired by blocking NMDARs \citep{Kentros1998}.
 HCN1-KO mouse \citep{Hussaini2011}
 CA3 NMDAR for recall \citep{Nakazawa2002}
+\citep{Frey1988}\citep{Frey1993}
 
 \section{Functional correlates of memory}\label{sec:intro:memory:physiology}
 
-% \subsection{Memory engrams}
-% \todo[color=yellow]{Memory engrams section?}
+\subsection{Memory engrams}
+\todo[color=cyan]{Memory engrams section}
+% Semon's orginal work and recent works by Josselyn (good review), Alcino Silva, Fankland, Tonegawa.
+% In general this concept may worth a separate section in the introduction, including
+% 1) the memory-based definition of engram. 
+% 2) Recent IEG work attempting to "find" engram (NB: Peyman has been involved in Alcino Silva's recent engram studies, so questions related to engram stability and refining during CFC is likely) -see above. 
+% 3) You can raise the disconnect between physiological studies of hippocampal learning-related population dynamics and the engram concept (the Josselyn review is very good on this)
+% 4) This way you can get back to briefly in the conclusion and future directions at the end of thesis. 
 
 \subsection{Spatial maps}
 \label{sec:intro:memory:spatial_maps}
 Perhaps the best-studied `engrams' in the mammalian brain are hippocampal place cells.
-Throughout the \ac{HPC} (dentate gyrus, CA3, CA2, and CA1) there are principal cells that fire selectively at specific locations within an environment (\textsc{place cells}).
+Throughout the \ac{HPC} (\ac{DG}, CA3, CA2, and CA1) there are principal cells that fire selectively at specific locations within an environment (\textsc{place cells}).
 As an animal explores an environment these pyramidal cells show sparse spatially-modulated changes in firing rates that are established rapidly and subsequently remain stable \citep{O'Keefe1971, Thompson1990, Frank2004}.
 These place cells form an allocentric map of the environment, which is essential for normal episodic memory function \citep{Smith2006c, Nakazawa2004, Buzsaki2013}.
 Our understanding of place cells is a uniquely well-characterized functional mapping of the real world multiple synapses from both sensory and motor cortices.
-Within the entorhinal cortex, principal cells take on a variety of spatial firing properties, but one of the main categories are cells that fire at regularly spaced intervals throughout an environment (\textsc{grid cells}) \citep{Hafting2005, Moser2014a}.
+Within the \ac{EC}, principal cells take on a variety of spatial firing properties, but one of the main categories are cells that fire at regularly spaced intervals throughout an environment (\textsc{grid cells}) \citep{Hafting2005, Moser2014a}.
+\todo[color=cyan]{ -- MEC, mostly layer II -- add more details and reviews. Border cells, head-direction cells?}
 Place cells and grid cells together form the cellular foundation for the mammalian navigation system, and their discovery was recently awarded with the Nobel Prize in Medicine.
 
-% \subsection{Place cells}\label{sec:intro:memory:place_cells}
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\textwidth]{intro/Moser_2008_place_grid}
@@ -266,6 +335,7 @@ Place cells and grid cells together form the cellular foundation for the mammali
 \end{figure}
 
 \subsubsection{Remapping}
+\label{sec:intro:memory:remapping}
 Place cells, like other forms of memory, are constantly trying to balance two competing constraints: on the one hand, their firing needs to be stable in order to be a helpful representation of the environment, but on the other hand, their firing needs to be plastic enough to constantly encode new environments, forget irrelevant information, and adapt to new features.
 Place cells changing their firing properties to incorporate new features of the world is known as \textsc{remapping} \citep{Muller1987, Leutgeb2005a, Colgin2008}.
 A given place cell is defined by it's spatial tuning -- it's place field -- and it's firing rate gain within the place field.
@@ -279,8 +349,6 @@ In contrast, rate remapping preserves firing fields (and grid cell firing), but 
 This separation of position and rate coding has lead to the hypothesis that they code for spatial and episodic memory, respectively \citep{Leutgeb2005a}.
 Indeed, while place field location is closely tied to grid cell activity in the medial entorhinal cortex, rate remapping depends specifically on lateral entorhinal inputs, which convey contextual information \citep{Lu2013}.
 It is possible to observe incomplete remapping, known as \textsc{partial remapping}, though this generally refers to situations where subsets of cells respondent to alternate competing spatial reference frames \citep{Skaggs1998, Colgin2008}.
-% These two fundamental components of remapping
-% While place field location and firing rate gain remap separately....\textsc{partial remapping}.
 
 \subsubsection{Stability}
 \label{sec:intro:memory:stability}
@@ -289,7 +357,7 @@ More generally, the \textsc{stability} of place cells populations varies with el
 In area CA1, the place cell population changes over time, such that similarity of activity is greatest at short time scales and decays over time \citep{Mankin2012}.
 In contrast, place cell firing is more stable over time in CA3, providing a means to both stably represent a given environment and also distinguish different experience by recency.
 Place fields form rapidly ($<$10~min) and quickly stabilize \citep{Frank2004} and can remain stable for months with the right conditions \citep{Thompson1990, Lever2002a, Ziv2013}.
-This long-term stability is NMDA-receptors dependent \citep{Kentros1998} and appears to be a fundamental feature of the hippocampal spatial memory circuit.
+This long-term stability of place fields is both NMDA receptors-dependent \citep{Kentros1998} and requires new protein synthesis \citep{Agnihotri2004}, in a similar manner as LTP and other forms of declarative memory \citep{Frey1988, Hernandez2008}.
 That being said, several factors have been shown to influence the stability of place cell tuning.
 \citeauthor{Moita2004} trained mice in two chambers to establish separate place maps in both locations.
 After becoming familiar to both, rats underwent a contextual fear conditioning protocol in one of the chambers, which selectively induced remapping in that one chamber, while place cells in the control chamber remained stable \citep{Moita2004}.
@@ -312,5 +380,9 @@ My main findings in wildtype mice agree with what was shown previously, but I al
 \end{figure}
 
 In summary, our memories are fundamental features of our identity and we now are beginning to understand not just the cellular and circuit substrates for memory, but also the conditions that effect their stability.
+\todo[color=cyan]{A better linking sentence would be good. This is an important part here where you are trying to link the work on basal/normal circuit to pathophysiology. You can use rely on some part of the main paper intro or discussion to expand upon this.}
 In the next session I will discuss \scz/, and particularly how memory impairments is a core symptom of the disease.
 By better understanding the way in which memory fails, we can hope to find ways to strengthen these memories and also learn more about what is essential for the normal functioning of the declarative memory system as well.
+
+\todo[color=cyan, inline]{I feel that a section "Modeling place cells dynamics" here about modeling place cell dynamics/remapping would work well here. You can this way: prep the reader for the modeiing chapter, summaize some previous work (Mehta, Hasselmo) on reward-related shift, Stress the importance of chronic cellular resolution recording to obain data for this. In general I would suggest to place more emphasis on this modeling -- both in the Introduction and in the conclusion section!!}
+\todo[color=cyan, inline]{Phases of memory, consolidation -- model, role of SPW-R}
