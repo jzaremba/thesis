@@ -40,7 +40,7 @@ are freely available at \url{http://www.losonczylab.org/sima/}.
 Two-photon fluorescence imaging of neuronal populations has proven to be a powerful method for studying dynamic signals in neural circuits.
 For example, imaging of genetically-encoded fluorescent Ca\super{2+} indicators \citep{Looger2012} has been widely applied to simultaneously monitor the activity in large populations of spatially, morphologically, or genetically identified neurons.
 These methods can be implemented \textit{in vivo} in awake rodents \citep{Dombeck2007, Komiyama2010,Lovett-Barron2014}, 
-providing the potential to study the molecular, anatomical, and functional properties of neurons responsible for behavior \citep{Kerr2008, OConnor2010a}.
+providing the potential to study the molecular, anatomical, and functional properties of neurons responsible for behavior \citep{Kerr2008, OConnor2010}.
 Relative to the electrophysiological approaches traditionally used to study neuronal activity \textit{in vivo}, 
 two-photon imaging provides the advantages of recording activity in entire local populations without spike-sorting ambiguities or bias towards highly active neurons,
 imaging activity in subcellular compartments such as axons or dendrites, 
@@ -70,11 +70,12 @@ tools and how they can be used.
 Section \ref{sec:sima:details} explains details of the algorithms that have
 been implemented to provide this functionality.
 Finally, 
-Section \ref{sec:sima:discussion} compares this software with other
-available resources and discusses potential future developments.
+% Section \ref{sec:sima:discussion} compares this software with other
+% available resources and discusses potential future developments.
 
 
-\section{Functionality}\label{sec:sima:functionality}
+\section{Functionality}
+\label{sec:sima:functionality}
 The SIMA package and ROI Buddy GUI provide a variety of functionality outlined in Figure \ref{fig:sima:workflow}.
 To give an overview of this functionality, we provide sample code for typical use
 in the case in which the raw imaging data is contained in two NumPy arrays
@@ -137,10 +138,10 @@ For further analysis with external software, the signals can be exported using t
 
 The remainder of this section contains more detailed discussion of each of the 
 stages of this workflow.
-This discussion complements the API documentation that is available online at the project's website: \verb|http://www.losonczylab.org/sima|.
+This discussion complements the API documentation that is available online at the project's website: \url{http://www.losonczylab.org/sima}.
 
-
-\subsection{Object classes and input formats}\label{sec:sima:inputs}
+\subsection{Object classes and input formats}
+\label{sec:sima:inputs}
 The SIMA package follows an object-oriented design.
 The central object class around which the package is structured is the \verb|ImagingDataset|.
 Objects of this class can be created either by direct initialization
@@ -267,8 +268,8 @@ analysis.
 By default, the edges of the corrected images are conservatively trimmed to retain
 only the rectangular region that remains within the field of view during all imaging frames.
 
-
-\subsection{Segmentation and ROIs}\label{sec:sima:ROIs}
+\subsection{Segmentation and ROIs}
+\label{sec:sima:ROIs}
 The SIMA package allows for automated segmentation of the field of view with a call to the \verb|ImagingDataset.segment|
 method.
 The \verb|segment| method takes arguments that allow for specification of the approach
@@ -306,8 +307,8 @@ sorting or marking the ROIs based on morphological, genetic, or other criteria.
 These \verb|tags| can also be modified from within the ROI Buddy GUI or during analysis of fluorescence signals
 to aid in the selection and sorting of ROIs during subsequent analysis.
 
-
-\subsection{Manual ROI Editing}\label{sec:sima:ROIbuddy}
+\subsection{Manual ROI Editing}
+\label{sec:sima:ROIbuddy}
 The ROI Buddy GUI can be used to view and edit the automated segmentation results
 or to manually draw new ROIs.
 When the user loads an \verb|ImagingDataset| object, the time-averaged images are displayed as a static background on which \verb|ROI|
@@ -433,7 +434,8 @@ The resulting CSV file contains the \verb|id|, \verb|label|, and \verb|tags| for
 ROI, and the extracted signal from each ROI at each frame time.
 
 
-\section{Software details}\label{sec:sima:details}
+\section{Software details}
+\label{sec:sima:details}
 
 % \subsection{Motion correction}
 
@@ -610,7 +612,8 @@ The objects of each cluster are then assigned a common \verb|id| attribute, allo
 of the same region over multiple imaging sessions.
 
 
-\subsection{Signal extraction}\label{sec:sima:details:extraction}
+\subsection{Signal extraction}
+\label{sec:sima:details:extraction}
 In discussing the extraction procedures, 
 we use the notation $w_{ip}$ to denote the weighting of the $p$th pixel by the $i$th ROI.
 For polygon or binary mask ROIs, 

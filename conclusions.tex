@@ -7,38 +7,55 @@ In the preceding chapters I have laid out an understanding of memory in general,
 I have explained the symptoms that define \scz/, particularly the cognitive deficits which are most relevant for functional recovery, yet least treatable, and identified some of the underlying genetic risk factors and proximate causes (\autoref{ch:intro:scz}).
 I described the techniques that I employed in my experiments as well and the tools I developed to run the experiments and analyze the data (\autoref{ch:intro:techniques}).
 I next presented my primary thesis work; the characterization of hippocampal area CA1 pyramidal cell functional alterations during spatial learning in the \df/ mouse model of \scz/ (\autoref{ch:df}).
-\todo[color=cyan]{Recapitualtion of the main findings with 4-5 bulletpoints would be useful here.}
 In addition, in collaboration with graduate student colleagues, I developed a Python package for the initial processing of Ca\super{2+} imaging data that we have released to the broader neuroscience community (\autoref{ch:sima}).
 Supplementing my primary project, I also helped characterize the \emph{in vivo} functional properties of long-range inhibitory projections from lateral entorhinal cortex to CA1, adult-born granule cells among the dentate gyrus granule cell population, and developmentally separable sub-populations of pyramidal cells within CA1 (\autoref{ch:other}).
 
-
 \subsection{What we learned about memory}
 
-By performing some of the first functional \emph{in vivo} imaging experiments in the \ac{HPC} I characterized the \emph{in vivo} activity of novel circuit elements and showed how this activity mapped on to behavior.
+By performing some of the first functional, awake, \emph{in vivo} imaging experiments in the \ac{HPC} I characterized the \emph{in vivo} activity of novel circuit elements and identified neural correlates of learning.
+In particular, I have shown that:
+\begin{itemize}
+	\item The stability of place cell populations -- both in the the identity and tuning of those cells -- correlates with learning of a spatial reward task.
+	\item The memory encoding strategy employed by the \ac{HPC} varies depending on the specifics of the task demands.
+	\item Place cell enrichment of the reward location can support learning of spatial rewards and this enrichment arises from the coherent shift of place fields towards the reward location.
+	\item Place cells retain latent tuning information even during sessions when they are not active, providing further evidence for separate codes for spatial and episodic memory \citep{Leutgeb2005a}.
+	\item Long-range inhibitory projections from the \ac{LEC} convey salient, contextual information to the \ac{HPC}, providing a disinhibitory gating mechanism to refine hippocampal contextual representations.
+	\item Adult-born granule cells have higher firing rates and are less spatially-tuned than mature granule cells, supporting their role in context discrimination and pattern separation.
+	\item Superficial and deep CA1 pyramidal cells independently modulate their activity during learning, providing distinct substrates for stable and dynamic representations of space.
+\end{itemize}
+
+Depending on the specific task demands the \ac{HPC} can support learning and memory either by providing stable spatial representations for other brain regions -- such as the prefrontal cortex -- or by dynamically reconfiguring to explicitly represent the salient features of the environment. 
+The finding that stable maps always correlated with learning, but place cell reward enrichment only did sometimes, implies that a stable spatial map coexists with a salience-weighted map. Superficial and deep pyramidal cells may provide the distinct cellular substrates to support these two maps simultaneously. The salience instructive signal could come from direct neuromodulatory inputs to the \ac{HPC} or from contextual \ac{LEC} inputs, such as the \ac{LRIP} -- and possibly the two in combination.
 
 It's worth noting that that while my main work primarily looked to understand aberrant hippocampal activity in the \df/ mouse during spatial-reward learning task, my data also is interesting from the reverse perspective of understanding normal hippocampal function during a spatial-reward learning task.
 We have shown that the \df/ mouse is a model of impaired global remapping (context stability) and goal-related remapping (enrichment), two fairly complicated properties of neuronal circuits that would otherwise be very difficult, if not impossible, to manipulate.
 From this perspective, my data provides evidence that inducing global remapping or preventing reward-zone place cell enrichment impairs spatial-reward memory.
 
-\todo[inline, color=cyan]{discuss modeling results}
+% \todo[inline, color=cyan]{discuss modeling results}
 
 \subsection{What we learned about \scz/}
 
-Minor changes to context resulted in global remapping in \df/ mice, lending support to the idea of \scz/ as a disorder of aberrant salience.
+Functional imaging in an etiologically-validated mouse model of \scz/ provided insights into the hippocampal circuit disruptions that underlie hippocampal-dependent behavior. In particular, by imaging CA1 pyramidal cell activity throughout a \ac{GOL} task, I've shown that:
+\begin{itemize}
+	\item \df/ mice can perform spatial navigation tasks, just less efficiently, which is similar to what has been observed in \scz/ patients.
+	\item \df/ mice are specifically impaired as task demands increase.
+	\item Spatial maps are less stable, both in cell identity and spatial tuning, in the \df/ mice, providing a plausible functional explanation for impaired hippocampal-dependent behaviors.
+	\item Minor changes to context resulted in global remapping only in \df/ mice, lending support to the idea of \scz/ as a disorder of aberrant salience.
+	\item The specific cognitive strategy of place cell enrichment of salient features (goal zone) is inaccessible to the \df/ mice, forcing them to rely on less-efficient alternate strategies.
+	\item \df/ spatial maps do not show any evidence of shifting towards the reward, which was implicated in my remapping model to be driving reward enrichment.
+\end{itemize}
 
-\todo[inline, color=cyan]{SCZ memory deficit beyond hippocampus -- systems model: altered afferent-efferent information flow -- from/to HPC -- good link to in vivo imaging axonal projections.}
+Stable place cell maps, in and of themselves, do not provide information about where to find salient features, such as rewards. Despite this, stable maps do help spatial reward learning in both wildtype and \df/ mice, which suggests that downstream regions make use of this information -- potentially regions which have also been implicated in \scz/ pathology, such as the basal ganglia and prefrontal cortex. The \ac{HPC} is clearly not the only brain region affected by \scz/, but it is a key component of the cognitive systems disrupted in \scz/, including declarative memory, which has been my focus.
+
+In general, I've shown disruptions in neuronal ensemble activity in a genetic model of \scz/ that directly relate to behavioral deficits.
+These behaviors are similar to symptoms observed in \scz/ patients and the functional deficits I identified were in the evolutionarily-conserved hippocampal circuit, so they may translate to human patients as well.
+
+% \todo[inline, color=cyan]{SCZ memory deficit beyond hippocampus -- systems model: altered afferent-efferent information flow -- from/to HPC -- good link to in vivo imaging axonal projections.}
 
 \section{Future directions}
 
-% There remains several open questions directly related to my work as well as new related areas of research.
-
-% follow-up experiments 
-% new experiments
-% new compartments
-% new mice
-
 \subsection{Context generalization}
-\todo[color=cyan, inline]{You can link it here with Basu et al -- role of long range and modulatory inputs in context discrimination and generalization and their potential alterations in SCZ.}
+% \todo[color=cyan, inline]{You can link it here with Basu et al -- role of long range and modulatory inputs in context discrimination and generalization and their potential alterations in SCZ.}
 My \ac{GOL} task tested two fundamentally different aspects of spatial memory: How do spatial maps change in response to small changes to the environment (Condition~I \& II)? and How do spatial maps support the encoding of salient reward locations (Condition~II \& III)?
 I found an interesting differential effect between WT and \df/ mice in both of these tasks, so it would be interesting to explore each of these in more detail.
 In particular, my context remapping results suggests that the \df/ mis-attend to stimuli that the wildtype mice ignore, which manifests as an over-separation of similar contexts as seen by impaired task performance and also the global remapping of spatial maps between the two similar contexts.
@@ -47,9 +64,10 @@ This could be looked at in more detail by systematically modifying the two conte
 The EC-DG-CA3 circuit has been implicated in `pattern separation' and `pattern completion'  as a means for distinguishing similar contexts and generalizing to slightly different contexts (see \autoref{sec:intro:memory:hpc_comp}).
 My work on \ac{abGCs} highlighted their role in context discrimination (\autoref{sec:other:DG}) and their is also evidence that adult neurogenesis may be altered in \scz/ \citep[reviewed in,][]{Toro2007}, which is perhaps not surprising given the developmental origin of \scz/ (\autoref{sec:intro:scz:neurodevelopment}).
 Recording from \ac{abGCs} in the \df/ mouse model may provide insight into possible disruptions of adult neurogenesis in \scz/.
+
 Alternatively, non-spatial, contextual information arrives to the \ac{HPC} through a distinct circuit pathway which includes a \ac{LRIP} from the \ac{LEC} (see \autoref{sec:intro:memory:hpc_comp}).
-I performed the first awake, \emph{in vivo} functional imaging recordings of this projection which confirmed that they carry information about salient features of the environment (see \autoref{sec:other:LRIP} \& \citet{Basu2016})....
-\todo[color=yellow]{finish LRIP for context in \df/}
+I performed the first awake, \emph{in vivo} functional imaging recordings of this projection which confirmed that they carry information about salient features of the environment (see \autoref{sec:other:LRIP} \& \citet{Basu2016}).
+This projection may be driving the observation of aberrant salience in the \df/ mice, and potentially more generally in \scz/ patients.
 
 \subsection{Hippocampal GABAergic interneurons}
 Hippocampal GABAergic \ac{INs} provide robust control of the local hippocampal circuit (\autoref{sec:intro:memory:INs}).
@@ -88,8 +106,8 @@ Based on our initial findings and the above mentioned work, I would hypothesize 
 This could explain why we see learning similar to WT mice in the \df/ mice during the day, but a large deficit following the overnight period (\autoref{fig:df:performance_by_session_in_day}).
 
 \subsection{Reward cells}
-Recent work by several labs has identified a small population of \textsc{reward cells} among the place cell population in CA1 \citep{XXXX}.
-In spatial reward learning tasks, these cells follow the reward location as it moves and their firing has been shown to predict reward memory -- their activity directly precedes the onset of reward licking \citep{XXXX}.
+In spatial reward learning tasks, there is evidence of \textsc{reward cells} among the place cell population that follow the reward location as it moves.
+It has been suggested that heir firing can predict reward memory recall -- their activity directly precedes the onset of reward licking \citep{XXXX}.
 I actively searched through my data for evidence of reward cells and was not able to find any.
 This cell population would be interesting to study in general, as the formation and stability of this cell population over time has not been throughly investigated and they could have large implications for spatial reward learning.
 Also, in the \df/ mice, their absence might also be reflective of their impaired task performance.
@@ -97,12 +115,12 @@ To facilitate finding these cells, it would be helpful to modify the \ac{GOL} ta
 Instead of changing the context and then the reward, I could instead change the reward twice.
 This would help to identify cells that actually represented all three reward locations at the end of each Condition.
 
-\subsection{Explore place field shift result}
+\subsection{Further exploring place field shift modeling result}
 How do place cells throughout the environment coherently shift their firing fields towards the reward location (Figures \ref{fig:df:shift_fit} \& \ref{fig:df:param_swap})?
 The underlying mechanism driving this coherent shift remains unknown.
 Our result shows a symmetric shift towards the reward location, so some signal -- which could be local to CA1 or from another brain region -- needs to anticipate the reward position in order to shape the firing of place fields that precede the reward.
 We do see anticipatory licking leading up to the reward location that predicts tasks performance (\autoref{fig:conclusions:anticipatory_licking}), so this information is clearly represented somewhere.
-Three possibilities that I would like to further investigate are that enrichment originates in the entorhinal cortex is inherited by CA1, that neuromodulatory signals shape the tuning curves, or the local inhibitory circuit shifts firing fields towards the reward.
+Three possibilities that I would like to further investigate are that enrichment originates in the entorhinal cortex and is inherited by CA1, that neuromodulatory signals shape the tuning curves, or the local inhibitory circuit shifts firing fields towards the reward.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.9\textwidth]{df/FigSX_anticipatory_licking}
@@ -112,7 +130,6 @@ Three possibilities that I would like to further investigate are that enrichment
 	\label{fig:conclusions:anticipatory_licking}
 \end{figure}
 % \todo{include nucleus acumbens/VTA}
-
 Hippocampal area CA1 receives a direct project from the entorhinal cortex via the temporoammonic pathway, which could shape their activity in a task- and learning-dependent manner. Grid cells in the medial entorhinal cortex are thought to contribute to a cognitive map of space by providing a metric framework for direction and distance \citep{Hafting2005, Jeffery2015a} and these cells directly project to hippocampal area CA1 \citep{Zhang2013}, though the nature of their influence on CA1 place cell activity is currently debated \citep{Wills2010, Langston2010, Koenig2011, Brandon2011a}. Recent studies \citep{Krupic2015a, Stensola2015a} have found evidence for warping of grid spacing to salient anchors points (walls), so it is tempting to speculate about a similar warp of grid cell spacing by the learned reward position.
 While we did not record from area CA3 cells in the current study, previous studies \citep{Dupret2010a} have shown similar goal-directed remapping in CA1, but no remapping in CA3, leading to the possibility that area CA1 place cell activity is driven by stable CA3 representations and updated with environmental sensory input (border cells) and self-motion cues (grid cells) from the entorhinal cortex \citep{Bush2014a}.
 Particularly, an increasing gradient of grid spacing centered about the reward would provide the perception of slower movement, thus delaying the firing of cells tuned to distance from boundaries and shifting all place cells towards the reward. The nature of border cells in a one-dimensional head-fixed environment is not entirely obvious, though there are salient belt fabric transitions that could similarly anchor a cognitive reference frame.
@@ -120,8 +137,9 @@ This interpretation predicts that after reward learning, a given grid module wil
 Also, under conditions of grid cell map warping, we would expect a correlation between the local density of grid fields and the density of place cells.
 By recording either grid cells directly from the medial entorhinal cortex or grid cell axons that project to CA1, we could directly test these predictions.
 
-\todo[inline, color=yellow]{CA1 as source of enrichment, INs/neuromodulatory}
-% Alternatively, CA1 could itself be the source of enrichment if 
+Alternatively, CA1 could itself be the source of enrichment.
+The shift in firing field that we observed shows a symmetric `pull' of fields towards the reward.
+This suggests a synaptic gain function that peaks at the reward and falls off symmetrically in both directions. Neurochemical gradients along the belt could modulate the synaptic plasticity window in this space-dependent manner. Alternatively, GABAergic control of pyramidal cell firing could also instill this learning rule on the pyramidal cell population. Both neuromodulation in general and  hippocampal GABAergic interneuron activity in particular have been implicated in \scz/ disease progression, which could explain the lack of enrichment in \df/ mice.
 
 \subsection{Long term stability in place cell population}
 \label{sec:conclusions:chronic}
@@ -133,10 +151,11 @@ By looking at the stability between spatial maps at progressively longer elapsed
 \begin{figure}
 	\centering
 	\includegraphics[width=0.9\textwidth]{df/chronic_stability}
-	\caption{\df/ place fields are hyper-rigid over the course of a week.}
+	\caption[\df/ place fields are hyper-rigid over the course of a week]{\df/ place fields are hyper-rigid over the course of a week.
+	a. Histograms of centroid shift over a varying number of elapsed days for wildtype (left) and \df/ (right) mice. The sharp peak at zero shows that cells are generally stable day-to-day, but while the stability of the wildtype mice falls off (the curve flattens) over the course of 5 days, the \df/ place fields stay hyper-stable.
+	b. Place cell recurrence probability as a function of elapsed time. Similar to centroid shift, the place cell population also is hyper-stable in the \df/ mice.}
 	\label{fig:conclusions:chronic_stability}
 \end{figure}
-\todo[color=green]{Write better caption for chronic stability data.}
 
 \citeauthor{Ziv2013} actually found the wildtype mice to be more stable than what I observed, but I think this can be contributed to differences in task protocol.
 In their task, mice were running in an already familiar environment, so the stability observed was reflective of an already stabilized spatial map.
