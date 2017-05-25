@@ -50,3 +50,5 @@ Sup fig 2 legend:
 
 Fig 1d legend:
 - "Conditions II", should be "Condition II"
+
+Two "asses" should be "assess"
