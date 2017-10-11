@@ -31,3 +31,9 @@ https://askubuntu.com/questions/457604/converting-a-lot-of-image-jpg-to-png
 http://mirrors.rit.edu/CTAN/macros/latex/contrib/todonotes/todonotes.pdf
 
 https://xkcd.com/1403/
+
+To find bad characters:
+[^\x00-\x7F]
+
+Add to Data Dryad entry:
+note = {http://dx.doi.org/10.5061/dryad.rq560}

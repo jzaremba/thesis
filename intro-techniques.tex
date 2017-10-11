@@ -50,8 +50,7 @@ This allowed me to look at baseline stability of spatial maps with two-photon Ca
 
 \subsection{Goal-oriented learning}
 \label{sec:intro:techniques:GOL}
-XXXXXXXXXXXX
-In order to study spatial learning and memory while simultaneously imaging functional activity of hippocampal area CA1 place cells, Nathan Danielson and I developed a head-fixed \acl{GOL} task which I used to study spatial memory in a mouse model of \scz/ (\autoref{sec:df:methods:GOL}), to study functional diversity within CA1 pyramidal cells (\autoref{sec:other:sf-deep}), and is now being used by many other people in Attila's lab.
+In order to study spatial learning and memory while simultaneously imaging functional activity of hippocampal area CA1 place cells, we developed a head-fixed \acl{GOL} task. The task has been used by me to study spatial memory in a mouse model of \scz/ (\autoref{sec:df:methods:GOL}), by Nathan Danielson to study functional diversity within CA1 pyramidal cells (\autoref{sec:other:sf-deep}), and is now being used by many other people in Attila's lab.
 Freely-moving assays of spatial memory in rodents traditionally include the Morris water maze, Barnes maze, or cheese board maze (see \autoref{sec:intro:memory:spatial-reward}).
 While head-fixed under a two-photon microscope, mice are constrained to run in effectively a one-dimensional environment (similar to freely moving linear track paradigms) and there are limited options to experimentally assay choices made by the mice.
 They key features that we were trying to design in the task were:
@@ -100,7 +99,7 @@ Imaging data acquired through our microscope software (PraireView) is stored as 
 This can lead to over 30,000 files per 10 minute recording session, which very quickly becomes difficult to manage.
 So, the first step after running an experiment is to move all the data to a special \textsc{scratch} folder on our lab server, where I have a script constantly running to convert all of the data into one large HDF5 file (\url{https://www.hdfgroup.org/HDF5/}).
 This format allows us to store all of the data in a 5-dimensional (Time $\times$ Plane $\times$ Row $\times$ Column $\times$ Channel) indexable structure for easy iteration and viewing of the data.
-The script checks every individual TIFF file, writes it to the HDF5 file, verifys the integrity of the new HDF5 file, and then moves the new file to a permanent place on the server while deleting the original TIFF files.
+The script checks every individual TIFF file, writes it to the HDF5 file, verifies the integrity of the new HDF5 file, and then moves the new file to a permanent place on the server while deleting the original TIFF files.
 
 At this point the data is now properly formatted for estimation and correction of motion-induced imaging artifacts using our SIMA software package (\autoref{ch:sima}).
 
@@ -125,15 +124,15 @@ This prevents errors in the baseline calculation for any cells that do not have 
 Pyramidal cells in the mammalian hippocampus fire at specific locations within an environment.
 % \todo[color=cyan, bordercolor=green, inline]{Add refs and clarify that it is not just familiar but it is thought to be more stable in familiar environments but they are there early on in novel as well with refs. Jeff: this seems beyond this techniques section. I removed 'familiar' and reference the Frank2004 paper on place fields in novel environments.}
 We developed an algorithm to reliably identify cells that had a significantly higher mutual information between the mouse's position and the Ca\super{2+} activity of the cell than expected by chance.
-The overall goal of our analytical approach is to identify as un-­biased a population of spatially-­tuned cells as possible.
-In particular, we aim to avoid biases in place  field width, number of place fields per cell, location of place fields on the belt, or overall cell activity/firing rate level.
-In addition, unlike with electrophysiological data, Ca\super{2+} events have a finite duration that we needed to account for on a per-­cell basis.  
+The overall goal of our analytical approach is to identify as un-biased a population of spatially-tuned cells as possible.
+In particular, we aim to avoid biases in place field width, number of place fields per cell, location of place fields on the belt, or overall cell activity/firing rate level.
+In addition, unlike with electrophysiological data, Ca\super{2+} events have a finite duration that we needed to account for on a per-cell basis.  
 
 In brief, we calculate the occupancy normalized transient rate histogram for each cell with bin sizes ranging from 2~cm to 100~cm.
 In addition, for each bin size we also rotate the binning through all the possible shifts, such that, for example, if a cell fired transients over any continuous 20~cm segment of the belt, there would be a 20~cm bin that contained all of the transients.
 
 We then calculate the spatial information for each of these bin sizes and bin shifts and take the maximum value as the true spatial information of that cell.
-We then shuffle all of the transients within each cell, re-­calculate the occupancy normalized transient rate histogram for each bin size and shift as described above, again take the maximum spatial information for this particular shuffle, and then create a distribution of spatial information values across shuffles.
+We then shuffle all of the transients within each cell, re-calculate the occupancy normalized transient rate histogram for each bin size and shift as described above, again take the maximum spatial information for this particular shuffle, and then create a distribution of spatial information values across shuffles.
 This distribution empirically defines our spatial information confidence threshold for the particular pattern of transient durations and timings for the particular cell.
 
 Additional details of this method can be found in \autoref{sec:df:methods:pc_identification}.
